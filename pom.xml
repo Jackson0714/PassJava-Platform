@@ -14,5 +14,7 @@
         <module>passjava-content</module>
         <module>passjava-member</module>
         <module>passjava-question</module>
+        <module>passjava-study</module>
+        <module>passjava-channel</module>
     </modules>
 </project>
