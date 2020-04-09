@@ -35,6 +35,9 @@ target/
 *.zip
 *.tar
 *.tar.gz
+**/mvnw
+**/mvnw.cmd
+**/.mvn
 
 ### logs ####
 /logs/
@@ -56,7 +59,11 @@ Servers
 .metadata
 upload
 gen_code
-##
+
+### database ###
+
 db/db_back_dir/
+
+### redis ###
 /redis/
 
