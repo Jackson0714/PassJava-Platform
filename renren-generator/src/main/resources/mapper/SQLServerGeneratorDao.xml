@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="io.renren.dao.SQLServerGeneratorDao">
+	<select id="queryList" resultType="map">
+		select * from
+		(
+		select cast(so.name as varchar(500)) as tableName, cast(sep.value as varchar(500)) as tableComment, getDate() as createTime
+		from sysobjects so
+		left JOIN sys.extended_properties sep
+		on sep.major_id=so.id and sep.minor_id=0
+		where (xtype='U' or xtype='v')
+		) t where 1=1
+		<if test="tableName != null and tableName.trim() != ''">
+			and t.tableName like concat('%', #{tableName}, '%')
+		</if>
+		order by t.tableName
+	</select>
+
+	<select id="queryTable" resultType="map">
+		select * from (
+			select cast(so.name as varchar(500)) as tableName, 'mssql' as engine,cast(sep.value as varchar(500)) as tableComment, getDate() as createTime
+			from sysobjects so
+			left JOIN sys.extended_properties sep on sep.major_id=so.id and sep.minor_id=0
+			where (xtype='U' or xtype='v')
+		) t where t.tableName=#{tableName}
+	</select>
+
+	<select id="queryColumns" resultType="map">
+		SELECT
+		cast(
+			b.NAME AS VARCHAR(500)
+		) AS columnName,
+		cast(
+			sys.types.NAME AS VARCHAR(500)
+		) AS dataType,
+		cast(
+			c.VALUE AS VARCHAR(500)
+		) AS columnComment,
+		(
+			SELECT
+				CASE
+					count( 1 )
+					WHEN 1 then 'PRI'
+					ELSE ''
+				END
+			FROM
+				syscolumns,
+				sysobjects,
+				sysindexes,
+				sysindexkeys,
+				systypes
+			WHERE
+				syscolumns.xusertype = systypes.xusertype
+				AND syscolumns.id = object_id(A.NAME)
+				AND sysobjects.xtype = 'PK'
+				AND sysobjects.parent_obj = syscolumns.id
+				AND sysindexes.id = syscolumns.id
+				AND sysobjects.NAME = sysindexes.NAME
+				AND sysindexkeys.id = syscolumns.id
+				AND sysindexkeys.indid = sysindexes.indid
+				AND syscolumns.colid = sysindexkeys.colid
+				AND syscolumns.NAME = B.NAME
+			) as columnKey,
+			'' as extra
+		FROM
+			(
+				select
+					name,
+					object_id
+				from
+					sys.tables
+			UNION all select
+					name,
+					object_id
+				from
+					sys.views
+			) a
+		INNER JOIN sys.COLUMNS b ON
+			b.object_id = a.object_id
+		LEFT JOIN sys.types ON
+			b.user_type_id = sys.types.user_type_id
+		LEFT JOIN sys.extended_properties c ON
+			c.major_id = b.object_id
+			AND c.minor_id = b.column_id
+		WHERE
+			a.NAME = #{tableName}
+			and sys.types.NAME != 'sysname'
+	</select>
+</mapper>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="io.renren.dao.PostgreSQLGeneratorDao">
+	<resultMap id="tableMap" type="map">
+		<result column="tablename" property="tableName"></result>
+		<result column="tablecomment" property="tableComment"></result>
+		<result column="columnname" property="columnName"></result>
+		<result column="datatype" property="dataType"></result>
+		<result column="columncomment" property="columnComment"></result>
+		<result column="columnkey" property="columnKey"></result>
+		<result column="extra" property="extra"></result>
+		<result column="createtime" property="createTime"></result>
+	</resultMap>
+
+	<select id="queryList" resultMap="tableMap">
+		select t1.tablename as tableName, obj_description(relfilenode, 'pg_class') as tableComment, now() as createTime from pg_tables t1, pg_class t2
+		where t1.tablename not like 'pg%' and t1.tablename not like 'sql_%' and t1.tablename = t2.relname
+		<if test="tableName != null and tableName.trim() != ''">
+			and t1.tablename like concat('%', #{tableName}, '%')
+		</if>
+		order by t1.tablename desc
+	</select>
+
+	<select id="queryTable" resultMap="tableMap">
+		select t1.tablename as tableName, obj_description(relfilenode, 'pg_class') as tableComment, now() as createTime from pg_tables t1, pg_class t2
+			where t1.tablename = #{tableName} and t1.tablename = t2.relname
+	</select>
+
+	<select id="queryColumns" resultMap="tableMap">
+ 		select t2.attname as columnName, pg_type.typname as dataType, col_description(t2.attrelid,t2.attnum) as columnComment, '' as extra,
+			(CASE t3.contype WHEN 'p' THEN 'PRI' ELSE '' END) as columnKey
+		from pg_class as t1, pg_attribute as t2 inner join pg_type on pg_type.oid = t2.atttypid
+			left join pg_constraint t3 on t2.attnum = t3.conkey[1] and t2.attrelid = t3.conrelid
+		where t1.relname = #{tableName} and t2.attrelid = t1.oid and t2.attnum>0
+	</select>
+</mapper>

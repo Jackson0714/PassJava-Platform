@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="io.renren.modules.sys.dao.SysMenuDao">
+
+	<select id="queryListParentId" resultType="io.renren.modules.sys.entity.SysMenuEntity">
+		select * from sys_menu where parent_id = #{parentId} order by order_num asc
+	</select>
+
+	<select id="queryNotButtonList" resultType="io.renren.modules.sys.entity.SysMenuEntity">
+		select * from sys_menu where type != 2 order by order_num asc
+	</select>
+
+</mapper>

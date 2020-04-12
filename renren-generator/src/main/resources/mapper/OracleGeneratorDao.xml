@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="io.renren.dao.OracleGeneratorDao">
+	<resultMap id="tableMap" type="map">
+		<result column="TABLENAME" property="tableName"></result>
+		<result column="TABLECOMMENT" property="tableComment"></result>
+		<result column="COLUMNNAME" property="columnName"></result>
+		<result column="DATATYPE" property="dataType"></result>
+		<result column="COLUMNCOMMENT" property="columnComment"></result>
+		<result column="COLUMNKEY" property="columnKey"></result>
+		<result column="EXTRA" property="extra"></result>
+		<result column="CREATETIME" property="createTime"></result>
+	</resultMap>
+
+	<select id="queryList" resultMap="tableMap">
+		select dt.table_name tableName,
+		dtc.comments tableComment,
+		uo.created createTime
+		from user_tables dt,
+		user_tab_comments dtc,
+		user_objects uo
+		where dt.table_name = dtc.table_name and dt.table_name = uo.object_name and uo.object_type='TABLE'
+		<if test="tableName != null and tableName.trim() != ''">
+			and dt.table_name like concat('%', UPPER(#{tableName}))
+		</if>
+		order by uo.CREATED desc
+	</select>
+
+	<select id="queryTable" resultMap="tableMap">
+		select dt.table_name tableName,dtc.comments tableComment,dt.last_analyzed createTime from user_tables dt,user_tab_comments dtc where dt.table_name=dtc.table_name and dt.table_name = UPPER(#{tableName})
+	</select>
+
+	<select id="queryColumns" resultMap="tableMap">
+        select temp.column_name columnname,
+        temp.data_type dataType,
+        temp.comments columnComment,
+        case temp.constraint_type when 'P' then 'PRI' when 'C' then 'UNI' else '' end "COLUMNKEY",
+        '' "EXTRA"
+        from (
+        select col.column_id,
+        col.column_name,
+        col.data_type,
+        colc.comments,
+        uc.constraint_type,
+        -- 去重
+        row_number() over (partition by col.column_name order by uc.constraint_type desc) as row_flg
+        from user_tab_columns col
+        left join user_col_comments colc
+        on colc.table_name = col.table_name
+        and colc.column_name = col.column_name
+        left join user_cons_columns ucc
+        on ucc.table_name = col.table_name
+        and ucc.column_name = col.column_name
+        left join user_constraints uc
+        on uc.constraint_name = ucc.constraint_name
+        where col.table_name = upper(#{tableName})
+        ) temp
+        where temp.row_flg = 1
+        order by temp.column_id
+	</select>
+
+</mapper>
