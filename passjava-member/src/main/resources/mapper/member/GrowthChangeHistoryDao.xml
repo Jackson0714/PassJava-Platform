@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jackson0714.passjava.member.dao.GrowthChangeHistoryDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.jackson0714.passjava.member.entity.GrowthChangeHistoryEntity" id="growthChangeHistoryMap">
+        <result property="id" column="id"/>
+        <result property="memberId" column="member_id"/>
+        <result property="changeCount" column="change_count"/>
+        <result property="note" column="note"/>
+        <result property="sourceType" column="source_type"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+
+
+</mapper>

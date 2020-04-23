@@ -1,5 +1,5 @@
 server:
-  port: 80
+  port: 8003
 
 # mysql
 spring:
@@ -7,9 +7,9 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     #MySQL配置
     driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://129.211.188.xxx:3306/renren_fast?useUnicode=true&characterEncoding=UTF-8&useSSL=false
-    username: root
-    password: root
+    url: jdbc:mysql://129.211.188.xxxx:xxxx/passjava_sms?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: xxxx
+    password: xxxx
     #oracle配置
     #    driverClassName: oracle.jdbc.OracleDriver
     #    url: jdbc:oracle:thin:@47.100.206.162:1521:xe

@@ -1,0 +1,20 @@
+#spring:
+#  datasource:
+#      driver-class-name: com.mysql.cj.jdbc.Driver
+#      url: jdbc:mysql://129.211.188.xxxx:xxxx/passjava_ums?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+#      username: xxxx
+#      password: xxxx
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: 127.0.0.1:8848
+#  application:
+#    name: passjava-member
+#mybatis-plus:
+#  mapper-locations: classpath:/mapper/**/*.xml
+#  global-config:
+#    db-config:
+#      id-type: auto
+#
+#server:
+#  port: 10000

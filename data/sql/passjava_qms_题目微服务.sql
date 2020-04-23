@@ -13,10 +13,12 @@ create table qms_question
    sub_title            varchar(500) comment '副标题',
    type                 bigint comment '题目类型',
    enable               tinyint comment '是否显示',
-   create_time          datetime comment '创建时间',
-   update_time          datetime comment '更新时间',
+   create_time          datetime default CURRENT_TIMESTAMP comment '创建时间',
+   update_time          datetime default CURRENT_TIMESTAMP comment '更新时间',
    primary key (id)
 );
+
+drop table if exists qms_type;
 
 drop table if exists qms_type;
 
@@ -25,12 +27,13 @@ drop table if exists qms_type;
 /*==============================================================*/
 create table qms_type
 (
-   id                   integer not null auto_increment comment 'id',
+   id                   bigint not null auto_increment comment 'id',
    type                 char(64) comment '类型名称',
    logo_url             varchar(500) comment '类型logo路径',
-   create_time          datetime comment '创建时间',
-   update_time          datetime comment '更新时间',
+   create_time          datetime default CURRENT_TIMESTAMP comment '创建时间',
+   update_time          datetime default CURRENT_TIMESTAMP comment '更新时间',
    primary key (id)
 );
 
 alter table qms_type comment '题目-题目类型表';
+

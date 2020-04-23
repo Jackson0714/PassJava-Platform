@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jackson0714.passjava.content.dao.NewsDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.jackson0714.passjava.content.entity.NewsEntity" id="newsMap">
+        <result property="id" column="id"/>
+        <result property="imageUrl" column="image_url"/>
+        <result property="title" column="title"/>
+        <result property="displayOrder" column="display_order"/>
+        <result property="renderUrl" column="render_url"/>
+        <result property="enable" column="enable"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+
+
+</mapper>

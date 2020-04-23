@@ -3,9 +3,9 @@ spring:
         type: com.alibaba.druid.pool.DruidDataSource
         druid:
             driver-class-name: com.mysql.cj.jdbc.Driver
-            url: jdbc:mysql://129.211.188.218:xxx/passjava_admin?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
-            username: root
-            password: root
+            url: jdbc:mysql://129.211.188.xxxx:xxxx/passjava_admin?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+            username: xxxx
+            password: xxxx
             initial-size: 10
             max-active: 100
             min-idle: 10

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jackson0714.passjava.question.dao.QuestionDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.jackson0714.passjava.question.entity.QuestionEntity" id="questionMap">
+        <result property="id" column="id"/>
+        <result property="title" column="title"/>
+        <result property="answer" column="answer"/>
+        <result property="level" column="level"/>
+        <result property="displayOrder" column="display_order"/>
+        <result property="subTitle" column="sub_title"/>
+        <result property="type" column="type"/>
+        <result property="enable" column="enable"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+
+
+</mapper>
