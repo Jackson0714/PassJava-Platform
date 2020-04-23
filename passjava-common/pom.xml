@@ -11,6 +11,18 @@
 
     <artifactId>passjava-common</artifactId>
     <description>工具类模块，其他服务引用该模块</description>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>7</source>
+                    <target>7</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
     <dependencies>
         <!-- nacos discovery 服务发现组件 -->
