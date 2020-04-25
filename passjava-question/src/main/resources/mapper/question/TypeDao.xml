@@ -7,6 +7,7 @@
     <resultMap type="com.jackson0714.passjava.question.entity.TypeEntity" id="typeMap">
         <result property="id" column="id"/>
         <result property="type" column="type"/>
+        <result property="comments" column="comments"/>
         <result property="logoUrl" column="logo_url"/>
         <result property="createTime" column="create_time"/>
         <result property="updateTime" column="update_time"/>

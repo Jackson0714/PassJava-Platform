@@ -1,0 +1,10 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: route_portal # 路由规则id
+          uri: lb://renren-fast # 负载均衡，renren-fast服务
+          predicates: # 断言
+            - Path=/api/** # 如果前端请求路径包含 api，则应用这条路由规则
+          filters: #过滤器
+            - RewritePath=/api/(?<segment>.*),/renren-fast/$\{segment} # 将跳转路径中包含的api替换成renren-fast

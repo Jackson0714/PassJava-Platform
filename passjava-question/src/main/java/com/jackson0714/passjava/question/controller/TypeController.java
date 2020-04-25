@@ -22,7 +22,7 @@ import com.jackson0714.common.utils.R;
  *
  * @author jackson0714
  * @email jackson0585@163.com
- * @date 2020-04-12 19:46:42
+ * @date 2020-04-25 22:34:04
  */
 @RestController
 @RequestMapping("question/type")
@@ -47,7 +47,7 @@ public class TypeController {
      */
     @RequestMapping("/info/{id}")
     //@RequiresPermissions("question:type:info")
-    public R info(@PathVariable("id") Integer id){
+    public R info(@PathVariable("id") Long id){
 		TypeEntity type = typeService.getById(id);
 
         return R.ok().put("type", type);
@@ -80,7 +80,7 @@ public class TypeController {
      */
     @RequestMapping("/delete")
     //@RequiresPermissions("question:type:delete")
-    public R delete(@RequestBody Integer[] ids){
+    public R delete(@RequestBody Long[] ids){
 		typeService.removeByIds(Arrays.asList(ids));
 
         return R.ok();

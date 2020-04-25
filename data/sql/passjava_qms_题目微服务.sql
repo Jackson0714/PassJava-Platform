@@ -29,6 +29,7 @@ create table qms_type
 (
    id                   bigint not null auto_increment comment 'id',
    type                 char(64) comment '类型名称',
+   comments             char(64) comment '备注',
    logo_url             varchar(500) comment '类型logo路径',
    create_time          datetime default CURRENT_TIMESTAMP comment '创建时间',
    update_time          datetime default CURRENT_TIMESTAMP comment '更新时间',
