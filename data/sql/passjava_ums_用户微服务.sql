@@ -22,6 +22,7 @@ create table ums_member
    source_type          tinyint comment '用户来源',
    integration          int comment '积分',
    register_time        datetime comment '注册时间',
+   del_flag             tinyint(1) DEFAULT 0 COMMENT '删除标记（0-正常，1-删除）'
    create_time          datetime default CURRENT_TIMESTAMP comment '创建时间',
    update_time          datetime default CURRENT_TIMESTAMP comment '更新时间',
    primary key (id)
@@ -41,6 +42,7 @@ create table ums_growth_change_history
    change_count         int comment '改变的值（正负计数）',
    note                 varchar(500) comment '备注',
    source_type          tinyint comment '0->扫码；1->搜索;2->分享',
+   del_flag             tinyint(1) DEFAULT 0 COMMENT '删除标记（0-正常，1-删除）'
    create_time          datetime default CURRENT_TIMESTAMP comment '创建时间',
    update_time          datetime default CURRENT_TIMESTAMP comment '更新时间',
    primary key (id)
