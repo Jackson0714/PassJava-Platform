@@ -49,6 +49,10 @@ public class BannerEntity implements Serializable {
 	 */
 	private String renderUrl;
 	/**
+	 * 删除标记（0-正常，1-删除）
+	 */
+	private Integer delFlag;
+	/**
 	 * 创建时间
 	 */
 	private Date createTime;

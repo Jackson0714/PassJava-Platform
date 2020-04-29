@@ -1,6 +1,7 @@
 package com.jackson0714.passjava.channel.entity;
 
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.io.Serializable;
@@ -36,6 +37,10 @@ public class ChannelEntity implements Serializable {
 	 * 渠道appsecret
 	 */
 	private String appsecret;
+	/**
+	 * 删除标记（0-正常，1-删除）
+	 */
+	private Integer delFlag;
 	/**
 	 * 创建时间
 	 */

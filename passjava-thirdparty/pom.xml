@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.jackson0714.passjava</groupId>
-    <artifactId>passjava-question</artifactId>
+    <artifactId>passjava-thirdparty</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>passjava-question</name>
-    <description>佳必过-题目服务</description>
+    <name>passjava-thirdparty</name>
+    <description>佳必过-第三方服务</description>
 
     <properties>
         <java.version>1.8</java.version>
@@ -24,14 +24,17 @@
             <groupId>com.jackson0714.passjava</groupId>
             <artifactId>passjava-common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.baomidou</groupId>
+                    <artifactId>mybatis-plus-boot-starter</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
-        <!--
         <dependency>
-            <groupId>com.aliyun.oss</groupId>
-            <artifactId>aliyun-sdk-oss</artifactId>
-            <version>3.8.0</version>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alicloud-oss</artifactId>
         </dependency>
-        -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -63,6 +66,16 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+            <!--  Spring Cloud Alibaba 依赖  -->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>2.2.0.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 

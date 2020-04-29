@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+#  alicloud:
+#    access-key: xxxx
+#    secret-key: xxxx
+#    oss:
+#      endpoint: oss-cn-beijing.aliyuncs.com
+#      bucket: passjava
+  application:
+        name: passjava-thirdparty
+server:
+  port: 14000

@@ -25,6 +25,7 @@
     </build>
 
     <dependencies>
+
         <!-- nacos discovery 服务发现组件 -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>

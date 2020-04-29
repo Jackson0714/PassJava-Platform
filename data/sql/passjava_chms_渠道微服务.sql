@@ -9,7 +9,7 @@ create table chms_channel
    name                 varchar(100) comment '渠道名称',
    appid                varchar(100) comment '渠道appid',
    appsecret            varchar(500) comment '渠道appsecret',
-   del_flag             tinyint(1) DEFAULT 0 COMMENT '删除标记（0-正常，1-删除）'
+   del_flag             tinyint(1) DEFAULT 0 COMMENT '删除标记（0-正常，1-删除）',
    create_time          datetime DEFAULT CURRENT_TIMESTAMP comment '创建时间',
    update_time          datetime DEFAULT CURRENT_TIMESTAMP comment '更新时间',
    primary key (id)
@@ -29,7 +29,7 @@ create table chms_access_token
    access_token         varchar(500) comment 'access_token',
    expire_time          datetime comment '到期时间',
    channel_id           bigint comment '渠道id',
-   del_flag             tinyint(1) DEFAULT 0 COMMENT '删除标记（0-正常，1-删除）'
+   del_flag             tinyint(1) DEFAULT 0 COMMENT '删除标记（0-正常，1-删除）',
    create_time          datetime DEFAULT CURRENT_TIMESTAMP comment '创建时间',
    update_time          datetime DEFAULT CURRENT_TIMESTAMP comment '更新时间',
    primary key (id)

@@ -13,6 +13,7 @@
         <result property="subTitle" column="sub_title"/>
         <result property="type" column="type"/>
         <result property="enable" column="enable"/>
+        <result property="delFlag" column="del_flag"/>
         <result property="createTime" column="create_time"/>
         <result property="updateTime" column="update_time"/>
     </resultMap>

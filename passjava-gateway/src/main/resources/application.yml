@@ -2,12 +2,19 @@ spring:
   cloud:
     gateway:
       routes:
+        - id: route_thirdparty # 题目微服务路由规则
+          uri: lb://passjava-thirdparty # 负载均衡，将请求转发到注册中心注册的assjava-thirdparty服务
+          predicates: # 断言
+            - Path=/api/thirdparty/** # 如果前端请求路径包含 api/thirdparty，则应用这条路由规则
+          filters: #过滤器
+            - RewritePath=/api/(?<segment>.*),/$\{segment} # 将跳转路径中包含的api替换成空
+
         - id: route_question # 题目微服务路由规则
-          uri: lb://passjava-question # 负载均衡，将请求转发到注册中心注册的renren-fast服务
+          uri: lb://passjava-question # 负载均衡，将请求转发到注册中心注册的assjava-question服务
           predicates: # 断言
             - Path=/api/question/** # 如果前端请求路径包含 api/question，则应用这条路由规则
           filters: #过滤器
-            - RewritePath=/api/(?<segment>.*),/$\{segment} # 将跳转路径中包含的api替换成question
+            - RewritePath=/api/(?<segment>.*),/$\{segment} # 将跳转路径中包含的api替换成空
 
         - id: route_portal # renren-fast微服务路由规则
           uri: lb://renren-fast # 负载均衡，renren-fast服务
@@ -16,3 +23,6 @@ spring:
           filters: #过滤器
             - RewritePath=/api/(?<segment>.*),/renren-fast/$\{segment} # 将跳转路径中包含的api替换成renren-fast，但是替换的url不会在前端显示，还是网关的访问路径。这里不是跳转到新的路径，而是转发请求。
 
+logging:
+  level:
+    com.jackson0714.passjava: debug

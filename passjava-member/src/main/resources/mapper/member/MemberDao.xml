@@ -22,6 +22,7 @@
         <result property="sourceType" column="source_type"/>
         <result property="integration" column="integration"/>
         <result property="registerTime" column="register_time"/>
+        <result property="delFlag" column="del_flag"/>
         <result property="createTime" column="create_time"/>
         <result property="updateTime" column="update_time"/>
     </resultMap>

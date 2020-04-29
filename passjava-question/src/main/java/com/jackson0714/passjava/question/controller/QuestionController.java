@@ -25,7 +25,7 @@ import com.jackson0714.common.utils.R;
  * @date 2020-04-25 22:34:04
  */
 @RestController
-@RequestMapping("question/question")
+@RequestMapping("question/v1/admin/question")
 public class QuestionController {
     @Autowired
     private QuestionService questionService;

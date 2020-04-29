@@ -12,7 +12,7 @@ create table cms_banner
    enable               tinyint comment '是否显示',
    render_type          tinyint comment '跳转类型',
    render_url           varchar(500) comment '跳转路径',
-   del_flag             tinyint(1) DEFAULT 0 COMMENT '删除标记（0-正常，1-删除）'
+   del_flag             tinyint(1) DEFAULT 0 COMMENT '删除标记（0-正常，1-删除）',
    create_time          datetime DEFAULT CURRENT_TIMESTAMP comment '创建时间',
    update_time          datetime DEFAULT CURRENT_TIMESTAMP comment '更新时间',
    primary key (id)
@@ -33,7 +33,7 @@ create table cms_news
    display_order        int comment '排序',
    render_url           varchar(500) comment '跳转路径',
    enable               tinyint comment '是否显示',
-   del_flag             tinyint(1) DEFAULT 0 COMMENT '删除标记（0-正常，1-删除）'
+   del_flag             tinyint(1) DEFAULT 0 COMMENT '删除标记（0-正常，1-删除）',
    create_time          datetime DEFAULT CURRENT_TIMESTAMP comment '创建时间',
    update_time          datetime DEFAULT CURRENT_TIMESTAMP comment '更新时间',
    primary key (id)
