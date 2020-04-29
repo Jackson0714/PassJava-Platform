@@ -17,6 +17,20 @@
 #  global-config:
 #    db-config:
 #      id-type: auto
+#      logic-delete-field: delFlag  #全局逻辑删除字段值 3.3.0开始支持，详情看下面。
+#      logic-delete-value: 1 # 逻辑已删除值(默认为 1)
+#      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
 #
 #server:
 #  port: 11000
+logging:
+  level:
+    com.jackson0714.passjava: debug
+
+#spring:
+#  cloud:
+#    alicloud:
+#      access-key: xxxx
+#      secret-key: xxxx
+#      oss:
+#        endpoint: oss-cn-beijing.aliyuncs.com
