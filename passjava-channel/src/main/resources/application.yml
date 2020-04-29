@@ -1,9 +1,9 @@
 spring:
   datasource:
       driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://129.211.188.xxxx:xxxx/passjava_chms?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
-      username: xxxx
-      password: xxxx
+      url: jdbc:mysql://192.168.10.160:3306/passjava_chms?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+      username: root
+      password: root
 
   cloud:
     nacos:
