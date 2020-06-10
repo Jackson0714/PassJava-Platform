@@ -22,6 +22,7 @@ import org.apache.commons.lang.StringUtils;
 import org.quartz.CronTrigger;
 import org.quartz.Scheduler;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -30,6 +31,7 @@ import java.util.*;
 
 @Service("scheduleJobService")
 public class ScheduleJobServiceImpl extends ServiceImpl<ScheduleJobDao, ScheduleJobEntity> implements ScheduleJobService {
+	@Qualifier("schedulerFactoryBean")
 	@Autowired
     private Scheduler scheduler;
 	

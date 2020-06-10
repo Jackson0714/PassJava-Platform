@@ -15,6 +15,7 @@ import com.jackson0714.passjava.question.service.QuestionService;
 import com.jackson0714.common.utils.PageUtils;
 import com.jackson0714.common.utils.R;
 
+import javax.validation.Valid;
 
 
 /**
@@ -47,8 +48,9 @@ public class QuestionController {
      */
     @RequestMapping("/info/{id}")
     //@RequiresPermissions("question:question:info")
-    public R info(@PathVariable("id") Long id){
+    public R info(@PathVariable("id") Long id) throws Exception {
 		QuestionEntity question = questionService.getById(id);
+		//throw new Exception("test");
 
         return R.ok().put("question", question);
     }
@@ -58,7 +60,7 @@ public class QuestionController {
      */
     @RequestMapping("/save")
     //@RequiresPermissions("question:question:save")
-    public R save(@RequestBody QuestionEntity question){
+    public R save(@Valid @RequestBody QuestionEntity question){
 		questionService.save(question);
 
         return R.ok();
