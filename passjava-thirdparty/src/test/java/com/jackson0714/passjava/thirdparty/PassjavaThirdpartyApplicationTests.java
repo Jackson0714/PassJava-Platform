@@ -20,8 +20,8 @@ class PassjavaThirdpartyApplicationTests {
         // Endpoint以杭州为例，其它Region请按实际情况填写。
         String endpoint = "http://oss-cn-beijing.aliyuncs.com";
         // 阿里云主账号AccessKey拥有所有API的访问权限，风险很高。强烈建议您创建并使用RAM账号进行API访问或日常运维，请登录 https://ram.console.aliyun.com 创建RAM账号。
-        String accessKeyId = "LTAI4G3KxBJ26EUbWsenmqhP";
-        String accessKeySecret = "RHtADVlvlKJvVBQnFNNvnne9p4NwnA";
+        String accessKeyId = "xxxx";
+        String accessKeySecret = "xxxx";
         String bucketName = "passjava";
 
         // <yourObjectName>上传文件到OSS时需要指定包含文件后缀在内的完整路径，例如abc/efg/123.jpg。
