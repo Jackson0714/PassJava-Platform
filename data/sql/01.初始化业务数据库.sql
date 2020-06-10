@@ -1,5 +1,5 @@
 DROP DATABASE IF EXISTS `passjava_ums`; 
-DROP DATABASE IF EXISTS `passjava_qms`;
+DROP DATABASE IF EXISTS `passjava_qms`;  
 DROP DATABASE IF EXISTS `passjava_sms`;
 DROP DATABASE IF EXISTS `passjava_cms`;
 DROP DATABASE IF EXISTS `passjava_chms`;
