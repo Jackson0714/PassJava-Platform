@@ -26,7 +26,7 @@
 		<fastjson.version>1.2.45</fastjson.version>
 		<velocity.version>1.7</velocity.version>
 		<pagehelper.spring.boot.version>1.2.5</pagehelper.spring.boot.version>
-		<mysql.version>5.1.38</mysql.version>
+		<mysql.version>8.0.16</mysql.version>
 		<mssql.version>4.0</mssql.version>
 		<oracle.version>11.2.0.3</oracle.version>
 	</properties>
