@@ -1,5 +1,6 @@
 package com.jackson0714.passjava.question.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
@@ -53,6 +54,13 @@ public class QuestionEntity implements Serializable {
 	 * 题目类型
 	 */
 	private Long type;
+
+	/**
+	 * 题目类型备注
+	 */
+	@TableField(exist = false)
+	private String typeComments;
+
 	/**
 	 * 是否显示
 	 */

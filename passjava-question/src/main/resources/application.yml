@@ -27,6 +27,7 @@ logging:
   level:
     com.jackson0714.passjava: debug
 
+
 #spring:
 #  cloud:
 #    alicloud:
@@ -34,3 +35,6 @@ logging:
 #      secret-key: xxxx
 #      oss:
 #        endpoint: oss-cn-beijing.aliyuncs.com
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss

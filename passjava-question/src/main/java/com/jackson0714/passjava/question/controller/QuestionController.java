@@ -74,6 +74,7 @@ public class QuestionController {
     public R update(@RequestBody QuestionEntity question){
 		questionService.updateById(question);
 
+
         return R.ok();
     }
 
