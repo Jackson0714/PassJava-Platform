@@ -17,7 +17,7 @@ PassJava 项目全套学习教程连载中，[关注公众号](#公众号)第一
 - 备用地址1：[https://jackson0714.github.io/PassJava-Learning](https://jackson0714.github.io/PassJava-Learning/) 
 - 备用地址2：http://jayh2018.gitee.io/passjava-learning/#/README
 
-## 文档连载目录
+## PassJava 教程连载目录
 
 - [打造一款 刷Java 知识的小程序](https://www.cnblogs.com/jackson0714/p/passJava1.html)
 - [打造一款 刷Java 知识的小程序（二）](https://www.cnblogs.com/jackson0714/p/passJava2.html)
@@ -77,6 +77,8 @@ PassJava 项目全套学习教程连载中，[关注公众号](#公众号)第一
 - [11.SpringCloud整合Alibaba-Nacos配置中心](http://www.jayh.club/#/02.PassJava架构篇/10.SpringCloud整合Nacos配置中心)
 - [12.SpringCloud整合Gateway网关](http://www.jayh.club/#/02.PassJava架构篇/11.SpringCloud整合Gateway网关)
 - [13.SpringCloud整合OSS对象存储](http://www.jayh.club/#/02.PassJava架构篇/12.SpringCloud整合OSS对象存储)
+- [14.整合统一异常处理-更新中]([http://www.jayh.club/#/02.PassJava%E6%9E%B6%E6%9E%84%E7%AF%87/13.%E6%95%B4%E5%90%88%E7%BB%9F%E4%B8%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86](http://www.jayh.club/#/02.PassJava架构篇/13.整合统一异常处理))
+- [15.Elasticsearch基础-更新中]()
 
 ## 业务篇
 
@@ -110,19 +112,35 @@ PassJava 项目全套学习教程连载中，[关注公众号](#公众号)第一
 
 ## Java并发多线程
 
+> 从源码层面详细讲解并发多线程，原理图都非常精美
+
 [01.反制面试官-14张原理图-再也不怕被问volatile!](https://juejin.im/post/6861885337568804871)
 
 [02.我跟老婆讲CAS原理，被鄙视太简单！15张图 -源码调试 .md](https://juejin.im/post/6863799243182702599)
 
-## 参考篇
+[03.Java并发必知必会第三弹：用积木讲解ABA原理.md](https://juejin.im/post/6864945088721027079)
 
-> PassJava 相关技术的使用教程
+[04.全网最细-21张图带你领略集合的线程不安全](https://juejin.im/post/6866444584688451591)
 
 ## 工具篇
 
 > 一些常用开发工具的使用
 
+[01.自定义Markdown神器Typora的主题样式](https://juejin.im/post/6864745378558771214)
 
+[02.使用docsify写开源文档]([http://www.jayh.club/#/99.tools/02.%E4%BD%BF%E7%94%A8docsify%E5%86%99%E5%BC%80%E6%BA%90%E6%96%87%E6%A1%A3](http://www.jayh.club/#/99.tools/02.使用docsify写开源文档))
+
+[03.Git同时上传到码云和github](https://juejin.im/post/6859388700858679303)
+
+[04.图床神器配置]([http://www.jayh.club/#/99.tools/04.%E5%9B%BE%E5%BA%8A%E7%A5%9E%E5%99%A8%E9%85%8D%E7%BD%AE](http://www.jayh.club/#/99.tools/04.图床神器配置))
+
+[05.我的常用工具](http://www.jayh.club/#/99.tools/05.%E6%88%91%E7%9A%84%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7)
+
+[06.Idea的十八般武艺](99.tools/06.Idea的十八般武艺.md)
+
+[07.Ubuntu16.04安装最新版nodejs]([http://www.jayh.club/#/99.tools/06.Idea%E7%9A%84%E5%8D%81%E5%85%AB%E8%88%AC%E6%AD%A6%E8%89%BA](http://www.jayh.club/#/99.tools/06.Idea的十八般武艺))
+
+[08.VSCode快速生成Vue模板]([http://www.jayh.club/#/99.tools/VSCode%E5%BF%AB%E9%80%9F%E7%94%9F%E6%88%90Vue%E6%A8%A1%E6%9D%BF](http://www.jayh.club/#/99.tools/VSCode快速生成Vue模板))
 
 ## 公众号
 
