@@ -1,6 +1,7 @@
 package com.jackson0714.passjava.search.config;
 
 import org.apache.http.HttpHost;
+import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.RestClient;
 import org.elasticsearch.client.RestHighLevelClient;
 import org.springframework.context.annotation.Bean;
@@ -9,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * @Author: 公众号 | 悟空聊架构
  * @Date: 2020/10/8 17:02
- * @Site: www.jayh.club
+ * @Site: www.passjava.club
  * @Github: https://github.com/Jackson0714/PassJava-Platform
  */
 @Configuration
