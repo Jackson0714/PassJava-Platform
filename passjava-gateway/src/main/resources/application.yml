@@ -3,7 +3,7 @@ spring:
     gateway:
       routes:
         - id: route_thirdparty # 题目微服务路由规则
-          uri: lb://passjava-thirdparty # 负载均衡，将请求转发到注册中心注册的assjava-thirdparty服务
+          uri: lb://passjava-thirdparty # 负载均衡，将请求转发到注册中心注册的passjava-thirdparty服务
           predicates: # 断言
             - Path=/api/thirdparty/** # 如果前端请求路径包含 api/thirdparty，则应用这条路由规则
           filters: #过滤器
