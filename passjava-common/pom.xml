@@ -93,11 +93,18 @@
             <scope>compile</scope>
         </dependency>
 
-        <!-- 链路追踪组件 -->
+<!--        &lt;!&ndash; 链路追踪组件 Sleuth &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.cloud</groupId>-->
+<!--            <artifactId>spring-cloud-starter-sleuth</artifactId>-->
+<!--        </dependency>-->
+
+        <!-- 链路追踪组件 Zipkin -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-sleuth</artifactId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
         </dependency>
+
     </dependencies>
 
     <dependencyManagement>

@@ -17,4 +17,4 @@ mybatis-plus:
       id-type: auto
 
 server:
-  port: 12000
+  port: 12100

@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "spring.zipkin.sender.type",
+      "type": "java.lang.String",
+      "description": "Description for spring.zipkin.sender.type."
+  }
+] }
