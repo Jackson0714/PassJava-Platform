@@ -89,4 +89,15 @@ public class QuestionController {
         return R.ok();
     }
 
+    /**
+     * 测试
+     * @return
+     */
+    @RequestMapping("/test")
+    //@RequiresPermissions("question:question:delete")
+    public String test(){
+
+        return "test";
+    }
+
 }
