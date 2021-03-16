@@ -25,6 +25,11 @@ public class QuestionServiceImpl extends ServiceImpl<QuestionDao, QuestionEntity
         if (!StringUtils.isEmpty(key)) {
             queryWrapper.eq("id", key).or().like("title", key).or().like("answer", key);
         }
+
+        String type = (String) params.get("type");
+        if (!StringUtils.isEmpty(type)) {
+            queryWrapper.eq("type", type);
+        }
         IPage<QuestionEntity> page = this.page(
                 new Query<QuestionEntity>().getPage(params),
                 queryWrapper
