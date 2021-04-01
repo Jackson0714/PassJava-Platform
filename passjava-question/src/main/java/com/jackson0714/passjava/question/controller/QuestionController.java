@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jackson0714.passjava.question.entity.QuestionEntity;
-import com.jackson0714.passjava.question.service.QuestionService;
+import com.jackson0714.passjava.question.service.IQuestionService;
 import com.jackson0714.common.utils.PageUtils;
 import com.jackson0714.common.utils.R;
 
@@ -29,7 +29,7 @@ import javax.validation.Valid;
 @RequestMapping("question/v1/admin/question")
 public class QuestionController {
     @Autowired
-    private QuestionService questionService;
+    private IQuestionService IQuestionService;
 
     /**
      * 列表
@@ -38,7 +38,7 @@ public class QuestionController {
     //@RequiresPermissions("question:question:list")
     public R list(@RequestParam Map<String, Object> params){
         long time = System.currentTimeMillis();
-        PageUtils page = questionService.queryPage(params);
+        PageUtils page = IQuestionService.queryPage(params);
         System.out.println("耗时："+ (System.currentTimeMillis() - time));
         return R.ok().put("page", page);
     }
@@ -50,7 +50,7 @@ public class QuestionController {
     @RequestMapping("/info/{id}")
     //@RequiresPermissions("question:question:info")
     public R info(@PathVariable("id") Long id) {
-		QuestionEntity question = questionService.getById(id);
+		QuestionEntity question = IQuestionService.getById(id);
         return R.ok().put("question", question);
     }
 
@@ -60,7 +60,7 @@ public class QuestionController {
     @RequestMapping("/save")
     //@RequiresPermissions("question:question:save")
     public R save(@Valid @RequestBody QuestionEntity question){
-		questionService.save(question);
+		IQuestionService.saveQuestion(question);
 
         return R.ok();
     }
@@ -71,8 +71,7 @@ public class QuestionController {
     @RequestMapping("/update")
     //@RequiresPermissions("question:question:update")
     public R update(@RequestBody QuestionEntity question){
-		questionService.updateById(question);
-
+		IQuestionService.updateQuestion(question);
 
         return R.ok();
     }
@@ -83,7 +82,7 @@ public class QuestionController {
     @RequestMapping("/delete")
     //@RequiresPermissions("question:question:delete")
     public R delete(@RequestBody Long[] ids){
-		questionService.removeByIds(Arrays.asList(ids));
+		IQuestionService.removeByIds(Arrays.asList(ids));
 
         return R.ok();
     }

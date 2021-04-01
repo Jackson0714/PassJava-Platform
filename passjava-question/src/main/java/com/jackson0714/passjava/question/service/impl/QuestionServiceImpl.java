@@ -1,6 +1,11 @@
 package com.jackson0714.passjava.question.service.impl;
 
+import com.jackson0714.common.to.es.QuestionEsModel;
+import com.jackson0714.passjava.question.entity.TypeEntity;
+import com.jackson0714.passjava.question.service.ITypeService;
 import org.apache.commons.lang.StringUtils;
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.Map;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -11,11 +16,14 @@ import com.jackson0714.common.utils.Query;
 
 import com.jackson0714.passjava.question.dao.QuestionDao;
 import com.jackson0714.passjava.question.entity.QuestionEntity;
-import com.jackson0714.passjava.question.service.QuestionService;
+import com.jackson0714.passjava.question.service.IQuestionService;
 
 
 @Service("questionService")
-public class QuestionServiceImpl extends ServiceImpl<QuestionDao, QuestionEntity> implements QuestionService {
+public class QuestionServiceImpl extends ServiceImpl<QuestionDao, QuestionEntity> implements IQuestionService {
+
+    @Autowired
+    ITypeService ITypeService;
 
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
@@ -36,6 +44,38 @@ public class QuestionServiceImpl extends ServiceImpl<QuestionDao, QuestionEntity
         );
 
         return new PageUtils(page);
+    }
+
+    @Override
+    public boolean saveQuestion(QuestionEntity question) {
+        boolean saveResult = save(question);
+        saveEs(question);
+
+        return true;
+    }
+
+    @Override
+    public boolean updateQuestion(QuestionEntity question) {
+        updateById(question);
+        saveEs(question);
+        return false;
+    }
+
+    private boolean saveEs(QuestionEntity question) {
+        // 1.创建 ES model
+        QuestionEsModel esModel = new QuestionEsModel();
+        // 2.复制属性
+        // 2.1 复制属性
+        BeanUtils.copyProperties(question, esModel);
+        // 2.2 获取“题目类型”的名称
+        TypeEntity typeEntity = ITypeService.getById(question.getType());
+        String typeName = typeEntity.getType();
+        // 2.3 给 ES model 的“类型”字段赋值
+        esModel.setTypeName(typeName);
+        // 3.
+        System.out.println("-----------------esModel:" + esModel);
+
+        return false;
     }
 
 }
