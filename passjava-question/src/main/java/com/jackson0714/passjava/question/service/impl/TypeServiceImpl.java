@@ -10,11 +10,11 @@ import com.jackson0714.common.utils.Query;
 
 import com.jackson0714.passjava.question.dao.TypeDao;
 import com.jackson0714.passjava.question.entity.TypeEntity;
-import com.jackson0714.passjava.question.service.TypeService;
+import com.jackson0714.passjava.question.service.ITypeService;
 
 
 @Service("typeService")
-public class TypeServiceImpl extends ServiceImpl<TypeDao, TypeEntity> implements TypeService {
+public class TypeServiceImpl extends ServiceImpl<TypeDao, TypeEntity> implements ITypeService {
 
     @Override
     public PageUtils queryPage(Map<String, Object> params) {

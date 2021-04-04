@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jackson0714.passjava.question.entity.TypeEntity;
-import com.jackson0714.passjava.question.service.TypeService;
+import com.jackson0714.passjava.question.service.ITypeService;
 import com.jackson0714.common.utils.PageUtils;
 import com.jackson0714.common.utils.R;
 
@@ -28,7 +28,7 @@ import com.jackson0714.common.utils.R;
 @RequestMapping("question/type")
 public class TypeController {
     @Autowired
-    private TypeService typeService;
+    private ITypeService ITypeService;
 
     /**
      * 列表
@@ -36,7 +36,7 @@ public class TypeController {
     @RequestMapping("/list")
     //@RequiresPermissions("question:type:list")
     public R list(@RequestParam Map<String, Object> params){
-        PageUtils page = typeService.queryPage(params);
+        PageUtils page = ITypeService.queryPage(params);
 
         return R.ok().put("page", page);
     }
@@ -48,7 +48,7 @@ public class TypeController {
     @RequestMapping("/info/{id}")
     //@RequiresPermissions("question:type:info")
     public R info(@PathVariable("id") Long id){
-		TypeEntity type = typeService.getById(id);
+		TypeEntity type = ITypeService.getById(id);
 
         return R.ok().put("type", type);
     }
@@ -59,7 +59,7 @@ public class TypeController {
     @RequestMapping("/save")
     //@RequiresPermissions("question:type:save")
     public R save(@RequestBody TypeEntity type){
-		typeService.save(type);
+		ITypeService.save(type);
 
         return R.ok();
     }
@@ -70,7 +70,7 @@ public class TypeController {
     @RequestMapping("/update")
     //@RequiresPermissions("question:type:update")
     public R update(@RequestBody TypeEntity type){
-		typeService.updateById(type);
+		ITypeService.updateById(type);
 
         return R.ok();
     }
@@ -81,7 +81,7 @@ public class TypeController {
     @RequestMapping("/delete")
     //@RequiresPermissions("question:type:delete")
     public R delete(@RequestBody Long[] ids){
-		typeService.removeByIds(Arrays.asList(ids));
+		ITypeService.removeByIds(Arrays.asList(ids));
 
         return R.ok();
     }
