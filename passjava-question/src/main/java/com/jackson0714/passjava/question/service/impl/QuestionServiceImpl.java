@@ -1,7 +1,9 @@
 package com.jackson0714.passjava.question.service.impl;
 
 import com.jackson0714.common.to.es.QuestionEsModel;
+import com.jackson0714.common.utils.R;
 import com.jackson0714.passjava.question.entity.TypeEntity;
+import com.jackson0714.passjava.question.feign.SearchFeignService;
 import com.jackson0714.passjava.question.service.ITypeService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.BeanUtils;
@@ -23,7 +25,10 @@ import com.jackson0714.passjava.question.service.IQuestionService;
 public class QuestionServiceImpl extends ServiceImpl<QuestionDao, QuestionEntity> implements IQuestionService {
 
     @Autowired
-    ITypeService ITypeService;
+    ITypeService typeService;
+
+    @Autowired
+    SearchFeignService searchFeignService;
 
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
@@ -58,7 +63,7 @@ public class QuestionServiceImpl extends ServiceImpl<QuestionDao, QuestionEntity
     public boolean updateQuestion(QuestionEntity question) {
         updateById(question);
         saveEs(question);
-        return false;
+        return true;
     }
 
     private boolean saveEs(QuestionEntity question) {
@@ -68,14 +73,22 @@ public class QuestionServiceImpl extends ServiceImpl<QuestionDao, QuestionEntity
         // 2.1 复制属性
         BeanUtils.copyProperties(question, esModel);
         // 2.2 获取“题目类型”的名称
-        TypeEntity typeEntity = ITypeService.getById(question.getType());
+        TypeEntity typeEntity = typeService.getById(question.getType());
         String typeName = typeEntity.getType();
         // 2.3 给 ES model 的“类型”字段赋值
         esModel.setTypeName(typeName);
-        // 3.
         System.out.println("-----------------esModel:" + esModel);
 
-        return false;
+        // 3. 调用 passjava-search 服务，将数据发送到 ES 中保存。
+        R r = searchFeignService.saveQuestion(esModel);
+
+        System.out.println("r:" + r);
+
+        if (r.get("code") != 0) {
+            return false;
+        }
+
+        return true;
     }
 
 }

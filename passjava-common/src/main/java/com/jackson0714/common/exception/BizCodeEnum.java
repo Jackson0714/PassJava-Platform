@@ -16,7 +16,8 @@ package com.jackson0714.common.exception;
  ***/
 public enum BizCodeEnum {
     UNKNOWN_EXCEPTION(10000, "系统未知异常"),
-    VALID_EXCEPTION(10001, "参数格式校验失败");
+    VALID_EXCEPTION(10001, "参数格式校验失败"),
+    QUESTION_SAVE_EXCEPTION(12001, "题目保存异常");
 
     private int code;
     private String msg;

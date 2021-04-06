@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * @Author: 公众号 | 悟空聊架构
  * @Date: 2020/10/8 17:02
- * @Site: www.passjava.club
+ * @Site: www.passjava.cn
  * @Github: https://github.com/Jackson0714/PassJava-Platform
  */
 @Configuration
