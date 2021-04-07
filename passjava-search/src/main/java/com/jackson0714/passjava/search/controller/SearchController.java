@@ -2,6 +2,7 @@ package com.jackson0714.passjava.search.controller;
 
 import com.jackson0714.passjava.search.service.IQuestionSearchService;
 import com.jackson0714.passjava.search.vo.SearchParam;
+import com.jackson0714.passjava.search.vo.SearchQuestionResponse;
 import org.elasticsearch.action.search.SearchResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,7 +24,7 @@ public class SearchController {
     IQuestionSearchService questionSearchService;
 
     @PostMapping("/question/list")
-    public SearchResponse list(SearchParam param) {
+    public SearchQuestionResponse list(SearchParam param) {
 
         return questionSearchService.search(param);
 

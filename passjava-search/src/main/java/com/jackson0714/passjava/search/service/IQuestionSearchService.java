@@ -1,7 +1,7 @@
 package com.jackson0714.passjava.search.service;
 
 import com.jackson0714.passjava.search.vo.SearchParam;
-import org.elasticsearch.action.search.SearchResponse;
+import com.jackson0714.passjava.search.vo.SearchQuestionResponse;
 
 /**
  * @Author: 公众号 | 悟空聊架构
@@ -11,5 +11,5 @@ import org.elasticsearch.action.search.SearchResponse;
  */
 public interface IQuestionSearchService {
 
-    SearchResponse search(SearchParam param);
+    SearchQuestionResponse search(SearchParam param);
 }
