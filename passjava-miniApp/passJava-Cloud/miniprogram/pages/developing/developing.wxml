@@ -1,0 +1,6 @@
+<view>
+   <view class="no-exam-questions">
+    <image class='no-exam-questions-image' src='../../images/simulatedExamList/no_exam_questions.png'></image>
+    <label class='no-exam-questions-text'>资源正在更新中~</label>
+  </view>
+</view>

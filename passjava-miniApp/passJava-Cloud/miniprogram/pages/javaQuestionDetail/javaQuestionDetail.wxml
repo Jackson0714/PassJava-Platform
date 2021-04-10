@@ -1,0 +1,11 @@
+<view class="question">
+  <view wx:if='{{ isLoading }}'>
+    <image class='loading' src='../../images/common/loading.gif'></image>
+  </view>
+  <view wx:if="{{!isLoading }}">
+    <!--<wemark md="{{detail}}" link highlight type="wemark"></wemark> -->
+    <!-- <rich-text nodes="{{detail}}"> </rich-text> -->
+    <towxml nodes="{{article}}"/>
+  </view>
+  
+</view>

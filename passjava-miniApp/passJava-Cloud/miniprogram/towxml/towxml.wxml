@@ -1,0 +1,5 @@
+<view class="h2w h2w-{{nodes.theme}}">
+	<view class="h2w__main">
+		<decode nodes="{{nodes}}"/>
+	</view>
+</view>

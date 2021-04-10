@@ -1,0 +1,17 @@
+<view class='list'>
+  <view class="item" wx:for="{{items}}" wx:key="id" data-id="{{item.id}}">
+    <view class="info">
+      <view class="detail" data-item='{{item}}' bindtap='viewDetail'>
+        <image class="image" src='{{item.imageUrl}}'></image>
+        <!-- <image class="image" src='../../images/index/practice_cover.png'></image> -->
+        <view class="content">
+          <view class="title">{{item.title}}</view>
+          <view class="desc">{{item.subTitle}}</view>
+        </view>
+      </view>
+      <view class="operate">
+        <view class="btn view-detail" data-item='{{item}}' bindtap='viewDetail'>查看</view>
+      </view>
+    </view>
+  </view>
+</view>

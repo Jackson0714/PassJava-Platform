@@ -1,0 +1,12 @@
+<view class='list-wrapper'>
+  <view wx:if='{{ isLoading }}'>
+    <image class='loading' src='../../images/common/loading.gif'></image>
+  </view>
+  <view>
+    <component-list items="{{ javaQuestionList }}" bind:btnClick="btnClick" btnClick="btnClick"></component-list>
+  </view>
+  <view class="no-questions" wx:if='{{ !isLoading && javaQuestionList.length == 0 }}'>
+    <image class='no-questions-image' src='../../images/javaQuestionList/no_questions.png'></image>
+    <label class='no-questions-text'>题目正在添加中，请持续关注~</label>
+  </view>
+</view>

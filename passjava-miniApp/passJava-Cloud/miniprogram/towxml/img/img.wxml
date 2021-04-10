@@ -1,0 +1,1 @@
+<image class="{{attr.class}}" lazy-load="true" mode="{{attr.mode || 'widthFix'}}" src="{{attr.src}}" style="{{attr.style}} width:{{size.w}}px;height:{{size.h}}px;" bindload="load"></image>

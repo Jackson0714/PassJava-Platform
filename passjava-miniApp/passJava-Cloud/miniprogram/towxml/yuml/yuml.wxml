@@ -1,0 +1,5 @@
+<view class="h2w__yumlBox">
+    <view style="width:{{size.w}}em;" class="h2w__yumlView">
+        <image class="{{attr.class}}" src="{{attr.src}}" style="width:{{size.w}}em; height:{{size.h}}em;" lazy-load="true" mode="aspectFill" bindload="load"></image>
+    </view>
+</view>

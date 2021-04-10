@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "my-experience": "../../components/experience/experience",
+    "component-list": "../../components/list/list"
+  }
+}

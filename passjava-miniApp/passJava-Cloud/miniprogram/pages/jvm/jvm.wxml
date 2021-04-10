@@ -1,0 +1,195 @@
+
+<view class='topic'>
+  <view class='topic-item'>
+    <view class='topic-title' data-index='1' catchtap='displayOrHiddenTopicDetail'>
+      <view class='title-text'>一、JVM 加载 Class 文件的原理机制?</view>
+      <view class='title-toggle'><image src="../../images/common/{{showIndex == 1 ? 'up':'down'}}.png"></image></view>
+    </view>
+    <view class='detail' wx:if="{{showIndex == 1}}">
+      <text>
+Java中的所有类，都需要由类加载器装载到JVM中才能运行。类加载器本身也是一个类，而它的工作就是把class文件从硬盘读取到内存中。在写程序的时候，我们几乎不需要关心类的加载，因为这些都是隐式装载的，除非我们有特殊的用法，像是反射，就需要显式的加载所需要的类。
+Java类的加载是动态的，它并不会一次性将所有类全部加载后再运行，而是保证程序运行的基础类(像是基类)完全加载到jvm中，至于其他类，则在需要的时候才加载。这当然就是为了节省内存开销。
+      </text>
+    </view>
+  </view>
+
+  <view class='topic-item'>
+    <view class='topic-title' data-index='2' catchtap='displayOrHiddenTopicDetail'>
+      <view class='title-text'>二、什么是类加载器？</view>
+      <view class='title-toggle'><image src="../../images/common/{{showIndex == 2 ? 'up':'down'}}.png"></image></view>
+    </view>
+    <view class='detail' wx:if="{{showIndex == 2}}">
+      <text>
+类加载器是一个用来加载类文件的类。Java源代码通过javac编译器编译成类文件。然后JVM来执行类文件中的字节码来执行程序。类加载器负责加载文件系统、网络或其他来源的类文件。
+      </text>
+    </view>
+  </view>
+
+  <view class='topic-item'>
+    <view class='topic-title' data-index='3' catchtap='displayOrHiddenTopicDetail'>
+      <view class='title-text'>三、类加载器有哪些？</view>
+      <view class='title-toggle'><image src="../../images/common/{{showIndex == 3 ? 'up':'down'}}.png"></image></view>
+    </view>
+    <view class='detail' wx:if="{{showIndex == 3}}">
+      <text>
+        有三种默认使用的类加载器：Bootstrap类加载器、Extension类加载器和Application类加载器。每种类加载器都有设定好从哪里加载类。
+
+Bootstrap类加载器负责加载rt.jar中的JDK类文件，它是所有类加载器的父加载器。Bootstrap类加载器没有任何父类加载器，如果你调用String.class.getClassLoader()，会返回null，任何基于此的代码会抛出NullPointerException异常。Bootstrap加载器被称为初始类加载器。
+
+而Extension将加载类的请求先委托给它的父加载器，也就是Bootstrap，如果没有成功加载的话，再从jre/lib/ext目录下或者java.ext.dirs系统属性定义的目录下加载类。Extension加载器由sun.misc.Launcher$ExtClassLoader实现。
+
+第三种默认的加载器就是Application类加载器了。它负责从classpath环境变量中加载某些应用相关的类，classpath环境变量通常由-classpath或-cp命令行选项来定义，或者是JAR中的Manifest的classpath属性。Application类加载器是Extension类加载器的子加载器。通过sun.misc.Launcher$AppClassLoader实现。
+
+
+      </text>
+    </view>
+  </view>
+
+  <view class='topic-item'>
+    <view class='topic-title' data-index='4' catchtap='displayOrHiddenTopicDetail'>
+      <view class='title-text'>四、</view>
+      <view class='title-toggle'><image src="../../images/common/{{showIndex == 4 ? 'up':'down'}}.png"></image></view>
+    </view>
+    <view class='detail' wx:if="{{showIndex == 4}}">
+      <text>
+
+      </text>
+    </view>
+  </view>
+
+  <view class='topic-item'>
+    <view class='topic-title' data-index='5' catchtap='displayOrHiddenTopicDetail'>
+      <view class='title-text'>五、</view>
+      <view class='title-toggle'><image src="../../images/common/{{showIndex == 5 ? 'up':'down'}}.png"></image></view>
+    </view>
+    <view class='detail' wx:if="{{showIndex == 5}}">
+      <text>
+
+      </text>
+    </view>
+  </view>
+
+  <view class='topic-item'>
+    <view class='topic-title' data-index='6' catchtap='displayOrHiddenTopicDetail'>
+      <view class='title-text'>六、</view>
+      <view class='title-toggle'><image src="../../images/common/{{showIndex == 6 ? 'up':'down'}}.png"></image></view>
+    </view>
+    <view class='detail' wx:if="{{showIndex == 6}}">
+      <text>
+
+      </text>
+    </view>
+  </view>
+
+    <view class='topic-item'>
+    <view class='topic-title' data-index='7' catchtap='displayOrHiddenTopicDetail'>
+      <view class='title-text'>七、</view>
+      <view class='title-toggle'><image src="../../images/common/{{showIndex == 7 ? 'up':'down'}}.png"></image></view>
+    </view>
+    <view class='detail' wx:if="{{showIndex == 7}}">
+      <text>
+
+
+      </text>
+    </view>
+  </view>
+
+  <view class='topic-item'>
+    <view class='topic-title' data-index='8' catchtap='displayOrHiddenTopicDetail'>
+      <view class='title-text'>八、</view>
+      <view class='title-toggle'><image src="../../images/common/{{showIndex == 8 ? 'up':'down'}}.png"></image></view>
+    </view>
+    <view class='detail' wx:if="{{showIndex == 8}}">
+      <text>
+
+
+      </text>
+    </view>
+  </view>
+
+  <view class='topic-item'>
+    <view class='topic-title' data-index='9' catchtap='displayOrHiddenTopicDetail'>
+      <view class='title-text'>九、</view>
+      <view class='title-toggle'><image src="../../images/common/{{showIndex == 9 ? 'up':'down'}}.png"></image></view>
+    </view>
+    <view class='detail' wx:if="{{showIndex == 9}}">
+      <text>
+
+      </text>
+    </view>
+  </view>
+
+  <view class='topic-item'>
+    <view class='topic-title' data-index='10' catchtap='displayOrHiddenTopicDetail'>
+      <view class='title-text'>十、</view>
+      <view class='title-toggle'><image src="../../images/common/{{showIndex == 10 ? 'up':'down'}}.png"></image></view>
+    </view>
+    <view class='detail' wx:if="{{showIndex == 10}}">
+      <text>
+
+      </text>
+    </view>
+  </view>
+
+  <view class='topic-item'>
+    <view class='topic-title' data-index='11' catchtap='displayOrHiddenTopicDetail'>
+      <view class='title-text'>十一、</view>
+      <view class='title-toggle'><image src="../../images/common/{{showIndex == 11 ? 'up':'down'}}.png"></image></view>
+    </view>
+    <view class='detail' wx:if="{{showIndex == 11}}">
+      <text>
+
+      </text>
+    </view>
+  </view>
+
+  <view class='topic-item'>
+    <view class='topic-title' data-index='12' catchtap='displayOrHiddenTopicDetail'>
+      <view class='title-text'>十二、</view>
+      <view class='title-toggle'><image src="../../images/common/{{showIndex == 12 ? 'up':'down'}}.png"></image></view>
+    </view>
+    <view class='detail' wx:if="{{showIndex == 12}}">
+      <text>
+
+      </text>
+    </view>
+  </view>
+
+  <view class='topic-item'>
+    <view class='topic-title' data-index='13' catchtap='displayOrHiddenTopicDetail'>
+      <view class='title-text'>十三、</view>
+      <view class='title-toggle'><image src="../../images/common/{{showIndex == 13 ? 'up':'down'}}.png"></image></view>
+    </view>
+    <view class='detail' wx:if="{{showIndex == 13}}">
+      <text>
+
+      </text>
+    </view>
+  </view>
+
+  <view class='topic-item'>
+    <view class='topic-title' data-index='14' catchtap='displayOrHiddenTopicDetail'>
+      <view class='title-text'>十四、</view>
+      <view class='title-toggle'><image src="../../images/common/{{showIndex == 14 ? 'up':'down'}}.png"></image></view>
+    </view>
+    <view class='detail' wx:if="{{showIndex == 14}}">
+      <text>
+
+      </text>
+    </view>
+  </view>
+
+  <view class='topic-item'>
+    <view class='topic-title' data-index='15' catchtap='displayOrHiddenTopicDetail'>
+      <view class='title-text'>十五、</view>
+      <view class='title-toggle'><image src="../../images/common/{{showIndex == 15 ? 'up':'down'}}.png"></image></view>
+    </view>
+    <view class='detail' wx:if="{{showIndex == 15}}">
+      <text>
+
+
+      </text>
+    </view>
+  </view>
+
+</view>

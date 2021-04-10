@@ -1,0 +1,16 @@
+  <view class="content">
+    <view class="range-type">
+      <image class='type-image' src='../../images/range/badge.png'></image>
+      <view class="range-text">
+        <text class='type-name'>{{typeName}}</text>
+        <text class='type-key'>{{typeKey}}</text>
+        </view>
+    </view>
+    <view class="item" wx:for="{{items}}" wx:key="id" data-id="{{item._id}}">
+      <view class="detail">
+        <view class="index">{{index+1}}、</view>
+        <view class="nickName">{{item.nickName}}</view>
+        <view class="value">{{item.value}}</view>
+      </view>
+    </view>
+  </view>

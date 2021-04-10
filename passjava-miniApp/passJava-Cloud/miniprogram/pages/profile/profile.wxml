@@ -1,0 +1,35 @@
+<!--index.wxml-->
+<view class="container">
+
+ <view class='top-root'>
+  <view class='about-wrap'>
+    <text class='about'>{{releaseTimeLine.aboutMe}}</text>
+    <text class='about'>{{releaseTimeLine.website}}</text>
+    <text class='about'>{{releaseTimeLine.github}}</text>
+    <text class='about'>{{releaseTimeLine.wechatService}}</text>
+    <text class='about'>{{releaseTimeLine.wechat}}</text>
+    </view>
+  </view>
+  <!-- 时间轴 -->
+  <view class="listview-container">
+  <block wx:for="{{releaseTimeLine.timeLinelist}}" wx:key="item">
+    <view class="relase-log-item">
+    <view class="dotline">
+      <!-- 竖线 -->
+      <view class="line"></view>
+      <!-- 圆点 -->
+      <view class="dot"></view>
+      <!-- 时间戳 -->
+    </view>
+    <view class="content">
+      <text class="date">{{item.date}}</text>
+      <text class="version">{{item.version}}</text>
+      <text class="description">{{item.description}}</text>
+    </view>
+    </view>
+  </block>
+  </view>
+
+  
+
+</view>

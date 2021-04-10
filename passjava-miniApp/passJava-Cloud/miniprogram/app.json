@@ -1,0 +1,36 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/profile/profile",
+    "pages/webview/webview",
+    "pages/developing/developing",
+    "pages/javaBasic/javaBasic",
+    "pages/jvm/jvm",
+    "pages/javaQuestionList/javaQuestionList",
+    "pages/javaQuestionDetail/javaQuestionDetail"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#ff997f",
+    "navigationBarTitleText": "Java核心知识",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "selectedColor": "#00d8ff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/common/index_unactive.png",
+        "selectedIconPath": "images/common/index_active.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "images/common/profile_unactive.png",
+        "selectedIconPath": "images/common/profile_active.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

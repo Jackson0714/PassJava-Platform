@@ -1,0 +1,108 @@
+.list {
+  margin: 12rpx 0;
+}
+
+.item {
+  padding: 2rpx 20rpx 20rpx;
+  background-repeat: no-repeat;
+  background-size: 98%;
+  background-position: center;
+  background-position-y: -8rpx;
+  background-image: url('https://7465-test-0jlva-1254012214.tcb.qcloud.la/list/list_item_bg.jpg')
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 180rpx;
+  border-radius: 20rpx;
+}
+
+.detail {
+  flex: 1 1 auto;
+  border-radius: 20rpx;
+  overflow: hidden;
+  border: none;
+  width: 70%;
+  height:180rpx;
+  position: absolute;
+}
+
+.image {
+  height: 180rpx;
+  width: 180rpx;
+  float: left;
+  padding-right: 20rpx;
+}
+
+.logo-image {
+  height: 180rpx;
+  width: 180rpx;
+  float: left;
+}
+
+.content {
+  padding: 20rpx;
+}
+
+.title {
+  height: 90rpx;
+  line-height: 44rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 30rpx;
+  color: #333;
+  font-weight: 600;
+  font-family: PingFangSC-Semibold;
+  word-wrap: break-word;
+  -ms-word-wrap: break-word;
+}
+
+.desc {
+  font-size: 24rpx;
+  font-weight: 400;
+  color: #666;
+  font-family: PingFangSC-Regular;
+}
+
+.operate {
+  width: 190rpx;
+  overflow: hidden;
+  text-align: center;
+  margin-left: 520rpx;
+}
+
+.status {
+  font-size: 24rpx;
+  font-weight: 400;
+  font-family: PingFangSC-Regular;
+  color: #666666;
+  margin: 30rpx 0;
+}
+
+.btn.view-detail {
+  background-color:#FFB040;
+  margin-top:60rpx;
+}
+
+.btn {
+  align-self: center;
+  width: 146rpx;
+  height: 52rpx;
+  line-height: 52rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 24rpx;
+  font-weight: 500;
+  background: #ecbc81;
+  border-radius: 26rpx;
+  margin-left: 20rpx;
+}
+
+.image-type {
+  width: 130rpx;
+  height: 130rpx;
+  margin-top: 12px;
+}
+

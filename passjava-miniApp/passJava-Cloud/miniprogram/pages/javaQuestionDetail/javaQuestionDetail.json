@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "知识点详解",
+  "navigationBarBackgroundColor": "#FFFFFF",
+  "backgroundTextStyle": "light",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "wemark": "../../components/wemark/wemark",
+    "richtext": "../../components/richtext/richtext",
+    "towxml":"/towxml/towxml"
+  }
+}

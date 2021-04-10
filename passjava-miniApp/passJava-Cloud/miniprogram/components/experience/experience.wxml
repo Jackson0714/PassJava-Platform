@@ -1,0 +1,8 @@
+<view class='experience' bindtap='gotoExperience'>
+  <view class='experience-cover'>
+    <image class='' src='{{coverUrl}}'></image>
+  </view>
+  <view class='experience-title'>
+    <text>{{title}}</text>
+  </view>
+</view>

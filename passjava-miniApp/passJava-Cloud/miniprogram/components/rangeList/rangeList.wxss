@@ -1,0 +1,45 @@
+
+.content .range-type {
+  display: flex;
+}
+
+.content .range-type .type-image {
+  margin-left: 20rpx;
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.content .range-type .range-text {
+  width: 100%;
+  line-height: 80rpx;
+  display: flex;
+}
+.content .range-type .range-text .type-name {
+  flex: 0.8;
+  font-weight:600;
+}
+
+.content .range-type .range-text .type-key {
+  color: rgba(27, 18, 18, 0.288);
+  margin-right: 20rpx;
+}
+
+.content .item {
+
+}
+
+.content .item .detail {
+  margin-left:90rpx;
+  margin-right: 60rpx;
+  display: flex;
+}
+
+.content .item .detail .index {
+}
+.content .item .detail .nickName {
+  flex: 1;
+}
+.content .item .detail .totalAnswerCount {
+  margin-right:60rpx;
+  display: flex;
+}

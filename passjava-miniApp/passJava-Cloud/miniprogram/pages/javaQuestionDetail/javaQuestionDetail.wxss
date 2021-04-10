@@ -1,0 +1,10 @@
+.question {
+  padding: 20rpx;
+}
+
+.question .loading {
+  height: 50rpx;
+  width: 50rpx;
+  margin-top: 60%;
+  margin-left: 47%;
+}

@@ -1,0 +1,29 @@
+<!--pages/addFunction/addFunction.wxml-->
+<view class="container">
+
+  <view class="list">
+    <view class="list-item" bindtap="testFunction">
+      <text>测试云函数</text>
+    </view>
+    <view class="list-item">
+      <text class="request-text">期望输出：{"sum":3}</text>
+    </view>
+    <view class="list-item" wx:if="{{result}}">
+      <text class="request-text">调用结果：{{result}}</text>
+    </view>
+  </view>
+
+  <view class="guide">
+    <text class="headline">新增云函数</text>
+    <text class="p">1. 在云函数根目录 cloudfunctions 上右键选择新建云函数，命名为 sum</text>
+    <text class="p">2. 在创建的 cloudfunctions/sum/index.js 文件中添加如下代码</text>
+    <image class="image1" src="../../images/code-func-sum.png" mode="aspectFit"></image>
+    <button class="copyBtn" wx:if="{{canIUseClipboard}}" bindtap="copyCode">复制代码</button>
+    <text class="p">3. 在 cloudfunctions/sum 目录上右键上传并部署</text>
+    <text class="p">4. 点击测试云函数测试</text>
+    <text class="p">5. 打开云开发云函数管理页，选择 sum 云函数</text>
+    <text class="p">6. 查看 sum 的调用日志</text>
+    <text class="p">进阶：可在云函数中使用 wx-server-sdk 操作数据库，文件存储和调用其他云函数，详见文档</text>
+  </view>
+
+</view>

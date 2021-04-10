@@ -1,0 +1,14 @@
+.no-exam-questions {
+  display: flex;
+  flex-direction: column;
+  margin-top: 200rpx;
+}
+
+.no-exam-questions-image {
+  height: 400rpx;
+  width: 400rpx;
+  margin: auto;
+}
+.no-exam-questions-text {
+  margin: auto;
+}
