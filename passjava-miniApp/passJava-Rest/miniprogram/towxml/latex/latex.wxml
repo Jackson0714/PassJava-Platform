@@ -1,0 +1,1 @@
+<image class="{{attr.class}}" lazy-load="true" src="{{attr.src}}" style="width:{{size.w}}em; height:{{size.h}}em;" bindload="load"></image>

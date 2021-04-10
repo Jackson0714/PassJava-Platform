@@ -1,0 +1,145 @@
+{
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": true,
+    "es6": true,
+    "enhance": false,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": false,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "useApiHostProcess": false,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "enableEngineNative": false,
+    "bundle": false,
+    "useIsolateContext": true,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.10.3",
+  "appid": "wx08bacac66e424d72",
+  "projectname": "passJavaCloud",
+  "miniprogramRoot": "miniprogram/",
+  "cloudfunctionRoot": "cloudfunctions/",
+  "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "scripts": {},
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "search": {
+      "list": []
+    },
+    "conversation": {
+      "list": []
+    },
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": -1,
+          "name": "db guide",
+          "pathName": "pages/databaseGuide/databaseGuide",
+          "query": ""
+        },
+        {
+          "id": 1,
+          "name": "exam",
+          "pathName": "pages/exam/exam",
+          "query": "type=daily&value=20190531",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "answer",
+          "pathName": "pages/answer/answer",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 3,
+          "name": "exam5",
+          "pathName": "pages/exam/exam",
+          "query": "type=simulated&value=5&title=模拟试题5",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "我的",
+          "pathName": "pages/profile/profile",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "专题秘籍",
+          "pathName": "pages/topic/topic",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "答题排行",
+          "pathName": "pages/range/range",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "问题列表",
+          "pathName": "pages/javaQuestionList/javaQuestionList",
+          "query": "type=java&title=Java基础",
+          "scene": null
+        },
+        {
+          "id": 8,
+          "name": "pages/javaQuestionDetail/javaQuestionDetail",
+          "pathName": "pages/javaQuestionDetail/javaQuestionDetail",
+          "query": "id=1&answerUrl=cloud://test-0jlva.7465-test-0jlva-1254012214/markdown/javaBasic/20200307.md",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": 1011
+        }
+      ]
+    }
+  }
+}

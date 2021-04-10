@@ -1,0 +1,260 @@
+<!--index.wxml-->
+<view class="index-wrapper">
+  
+ <view class="banner-wrapper" wx:if="{{!isLoadingBanner}}">
+    <view class="banner-background">
+      <view class="row-layout">
+        <view class="clock-position">
+          <image src="../../images/index/clock.png"></image>
+        </view>
+        <text class='clock-text'>距离4月1号考试剩余：{{clock}} </text>
+      </view>
+      <view class="banner-list">
+        <swiper circular="true"
+          autoplay="true" interval="5000" duration="500" bindchange="swiperChange" previous-margin='30rpx' style='height: 300rpx'>
+          <block wx:for="{{banners}}" wx:key="{{item}}">
+            <swiper-item>
+              <text class="swiper-label">{{item.content}}</text>
+              <image src="{{item.bannerUrl}}" class="slide-image" data-item="{{item}}" bindtap='toBannerPage'/>
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
+    </view>
+    <view class="dots">
+      <block wx:for="{{banners}}" wx:key="{{item}}">
+        <view class="dot" wx:if="{{index != swiperCurrent}}">
+          <image src='../../images/index/index_rectangle.png'></image>
+        </view>
+        <view class="active" wx:if="{{index == swiperCurrent}}">
+          <image src='../../images/index/index_oval.png'></image>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <view class="banner-wrapper" wx:if="{{isLoadingBanner}}">
+    <view class="banner-background">
+      <view class="row-layout">
+        <view class="clock-position">
+          <image src="../../images/index/clock.png"></image>
+        </view>
+        <text class='clock-text'>距离考试剩余：{{clock}} </text>
+      </view>
+      <view class="banner-list-loading"></view>
+    </view>
+  </view>
+
+  <view class="icons-wrapper row-layout" wx:if="{{!isLoadingBanner}}">
+    <view class='fastRecharge icon-box' bindtap='gotoJavaBasic' open-type="getUserInfo" 
+      bindgetuserinfo="onGetUserInfo">
+      <image src="../../images/index/index_answer.png" class="iconImage"></image>
+    </view>
+    <view class='commonIcon icon-box' bindtap='gotoJvm' open-type="getUserInfo" 
+      bindgetuserinfo="onGetUserInfo">
+      <image src="../../images/index/icon_code.png" class="iconImage"></image>
+    </view>
+    <view class='commonIcon icon-box' bindtap='gotoSpring' open-type="getUserInfo" 
+      bindgetuserinfo="onGetUserInfo">
+      <image src="../../images/index/icon_book.png" class="iconImage"></image>
+    </view>
+    <view class='commonIcon icon-box' bindtap='gotoMultiThreading' open-type="getUserInfo" 
+      bindgetuserinfo="onGetUserInfo">
+      <image src="../../images/index/icon_mutil_thread.png" class="iconImage"></image>
+    </view>
+  </view>
+
+  <view class="icons-wrapper row-layout" wx:if="{{isLoadingBanner}}">
+    <view class='fastRecharge icon-box'>
+      <image class="iconImage icon-image-loading common-color"></image>
+    </view>
+    <view class='commonIcon icon-box'>
+      <image class="iconImage icon-image-loading common-color"></image>
+    </view>
+    <view class='commonIcon icon-box'>
+      <image class="iconImage icon-image-loading common-color"></image>
+    </view>
+    <view class='commonIcon icon-box'>
+      <image class="iconImage icon-image-loading common-color"></image>
+    </view>
+  </view>
+
+  <view class="icons-title-wrapper row-layout" wx:if="{{!isLoadingBanner}}">
+    <view class="icon-title fastRechargeTitle">Java基础</view>
+    <view class="icon-title commonIconTitle">JVM</view>
+    <view class="icon-title commonIconTitle">Spring</view>
+    <view class="icon-title commonIconTitle">多线程</view>
+  </view>
+
+  <view class="icons-title-wrapper row-layout" wx:if="{{isLoadingBanner}}">
+    <view class="icon-title fastRechargeTitle icon-title-loading common-color"></view>
+    <view class="icon-title commonIconTitle icon-title-loading common-color"></view>
+    <view class="icon-title commonIconTitle icon-title-loading common-color"></view>
+    <view class="icon-title commonIconTitle icon-title-loading common-color"></view>
+  </view>
+
+  <!-- 第二行图片 -->
+  <view class="icons-wrapper row-layout" wx:if="{{!isLoadingBanner}}">
+    <view class='fastRecharge icon-box' bindtap='gotoMessageQueue' open-type="getUserInfo" 
+      bindgetuserinfo="onGetUserInfo">
+      <image src="../../images/index/icon_mq.png" class="iconImage"></image>
+    </view>
+    <view class='commonIcon icon-box' bindtap='gotoZookeeper' open-type="getUserInfo" 
+      bindgetuserinfo="onGetUserInfo">
+      <image src="../../images/index/icon_zookeeper.png" class="iconImage"></image>
+    </view>
+    <view class='commonIcon icon-box' bindtap='gotoLog' open-type="getUserInfo" 
+      bindgetuserinfo="onGetUserInfo">
+      <image src="../../images/index/icon_search.png" class="iconImage"></image>
+    </view>
+    <view class='commonIcon icon-box' bindtap='gotoInternet' open-type="getUserInfo" 
+      bindgetuserinfo="onGetUserInfo">
+      <image src="../../images/index/icon_earth.png" class="iconImage"></image>
+    </view>
+  </view>
+<view class="icons-wrapper row-layout" wx:if="{{isLoadingBanner}}">
+    <view class='fastRecharge icon-box'>
+      <image class="iconImage icon-image-loading common-color"></image>
+    </view>
+    <view class='commonIcon icon-box'>
+      <image class="iconImage icon-image-loading common-color"></image>
+    </view>
+    <view class='commonIcon icon-box'>
+      <image class="iconImage icon-image-loading common-color"></image>
+    </view>
+    <view class='commonIcon icon-box'>
+      <image class="iconImage icon-image-loading common-color"></image>
+    </view>
+  </view>
+
+  <view class="icons-title-wrapper row-layout" wx:if="{{!isLoadingBanner}}">
+    <view class="icon-title fastRechargeTitle">消息队列</view>
+    <view class="icon-title commonIconTitle">Zookeeper</view>
+    <view class="icon-title commonIconTitle">日志</view>
+    <view class="icon-title commonIconTitle">网络</view>
+  </view>
+
+  <view class="icons-title-wrapper row-layout" wx:if="{{isLoadingBanner}}">
+    <view class="icon-title fastRechargeTitle icon-title-loading common-color"></view>
+    <view class="icon-title commonIconTitle icon-title-loading common-color"></view>
+    <view class="icon-title commonIconTitle icon-title-loading common-color"></view>
+    <view class="icon-title commonIconTitle icon-title-loading common-color"></view>
+  </view>
+
+<!-- 第三行图片 -->
+  <view class="icons-wrapper row-layout" wx:if="{{!isLoadingBanner}}">
+    <view class='fastRecharge icon-box' bindtap='gotoAlgorithm'
+      bindgetuserinfo="onGetUserInfo">
+      <image src="../../images/index/icon-algorithm.png" class="iconImage"></image>
+    </view>
+    <view class='commonIcon icon-box' bindtap='gotoDataStructure' open-type="getUserInfo" 
+      bindgetuserinfo="onGetUserInfo">
+      <image src="../../images/index/icon_data_structure.png" class="iconImage"></image>
+    </view>
+    <view class='commonIcon icon-box' bindtap='gotoCloud' open-type="getUserInfo" 
+      bindgetuserinfo="onGetUserInfo">
+      <image src="../../images/index/icon_cloud2.png" class="iconImage"></image>
+    </view>
+    <view class='commonIcon icon-box' bindtap='gotoMicroService' open-type="getUserInfo" 
+      bindgetuserinfo="onGetUserInfo">
+      <image src="../../images/index/icon_micro_service.png" class="iconImage"></image>
+    </view>
+  </view>
+
+ <view class="icons-wrapper row-layout" wx:if="{{isLoadingBanner}}">
+    <view class='fastRecharge icon-box'>
+      <image class="iconImage icon-image-loading common-color"></image>
+    </view>
+    <view class='commonIcon icon-box'>
+      <image class="iconImage icon-image-loading common-color"></image>
+    </view>
+    <view class='commonIcon icon-box'>
+      <image class="iconImage icon-image-loading common-color"></image>
+    </view>
+    <view class='commonIcon icon-box'>
+      <image class="iconImage icon-image-loading common-color"></image>
+    </view>
+  </view>
+
+  <view class="icons-title-wrapper row-layout" wx:if="{{!isLoadingBanner}}">
+    <view class="icon-title fastRechargeTitle">Java算法</view>
+    <view class="icon-title commonIconTitle">数据结构</view>
+    <view class="icon-title commonIconTitle">云计算</view>
+    <view class="icon-title commonIconTitle">微服务</view>
+  </view>
+
+  <view class="icons-title-wrapper row-layout" wx:if="{{isLoadingBanner}}">
+    <view class="icon-title fastRechargeTitle icon-title-loading common-color"></view>
+    <view class="icon-title commonIconTitle icon-title-loading common-color"></view>
+    <view class="icon-title commonIconTitle icon-title-loading common-color"></view>
+    <view class="icon-title commonIconTitle icon-title-loading common-color"></view>
+  </view>
+
+  <!-- 第四行图片 -->
+  <view class="icons-wrapper row-layout" wx:if="{{!isLoadingBanner}}">
+    <view class='fastRecharge icon-box' bindtap='gotoCache'
+      bindgetuserinfo="onGetUserInfo">
+      <image src="../../images/index/icon_cache2.png" class="iconImage"></image>
+    </view>
+    <view class='commonIcon icon-box' bindtap='gotoBigData' open-type="getUserInfo" 
+      bindgetuserinfo="onGetUserInfo">
+      <image src="../../images/index/icon_big_data.png" class="iconImage"></image>
+    </view>
+  </view>
+
+<view class="icons-wrapper row-layout" wx:if="{{isLoadingBanner}}">
+    <view class='fastRecharge icon-box'>
+      <image class="iconImage icon-image-loading common-color"></image>
+    </view>
+    <view class='commonIcon icon-box'>
+      <image class="iconImage icon-image-loading common-color"></image>
+    </view>
+  </view>
+
+  <view class="icons-title-wrapper row-layout" wx:if="{{!isLoadingBanner}}">
+    <view class="icon-title fastRechargeTitle">缓存</view>
+    <view class="icon-title commonIconTitle">大数据</view>
+
+  </view>
+
+  <view class="icons-title-wrapper row-layout" wx:if="{{isLoadingBanner}}">
+    <view class="icon-title fastRechargeTitle icon-title-loading common-color"></view>
+    <view class="icon-title commonIconTitle icon-title-loading common-color"></view>
+
+  </view>
+
+  <!-- 总结 -->
+  <view class='title-text'>总结</view>
+  <view>
+    <component-list items="{{ summaryList }}" bind:btnClick="btnClick" ></component-list>
+  </view>
+
+  <view class="baby-news-wrapper" wx:if="{{experiences.length > 0}}">
+    <view class="row-layout baby-benifit">
+      <view class='title-text'>热点推荐</view>
+      <view class='more row-layout' bindtap='getMoreBabyPlay' wx:if="{{isMoreBabyPlay}}">
+        <view class='more-text'>更多</view>
+        <view class='more-arrow'><image src="../../images/index/arrow.png"></image></view>
+      </view>
+    </view>
+    <view wx:for="{{experiences}}" wx:key="{{item}}">
+      <my-experience cover-url="{{item.cover}}" title="{{item.title}}" page-path="{{item.pagePath}}"></my-experience>
+    </view>
+  </view>
+  <view class="contact">
+    <button class="contact" open-type="contact" bindcontact="handleContact"></button>
+    <image src="../../images/index/contact.png" class="iconImage"></image>
+  </view>
+
+  <!-- 用户的授权 -->
+  <view class='modal-wrapper' wx:if='{{isShowResigterModal}}'>
+    <view class='modal-layer'></view>
+    <view class="auth-modal">
+      <button class="login-button" open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" bindtap="onGetOpenid" lang='zh_CN'>授权微信登陆</button>
+      <view class="close" bindtap='closeModal'></view>
+    </view>
+  </view>
+
+  <official-account></official-account>
+
+</view>

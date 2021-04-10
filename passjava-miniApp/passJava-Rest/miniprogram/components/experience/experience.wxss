@@ -1,0 +1,38 @@
+.experience {
+  width: 690rpx;
+  height: 446rpx;
+  background-color: white;
+  border-radius: 20rpx;
+  margin: 26rpx auto;
+  -webkit-box-shadow: #c7c7c7 0rpx 0rpx 32rpx;
+  -moz-box-shadow: #c7c7c7 0rpx 0px 32rpx;
+  box-shadow: #c7c7c7 0rpx 0rpx 32rpx;
+}
+
+.experience-cover {
+  width: 690rpx;
+  height: 294rpx;
+}
+
+.experience-cover image {
+  height: 100%;
+  width: 100%;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+}
+
+.experience-title {
+  font-size: 30rpx;
+  font-family: PingFangSC-Semibold;
+  color: #000000;
+  line-height: 42rpx;
+  border-bottom-right-radius: 20rpx;
+  border-bottom-left-radius: 20rpx;
+  margin: 30rpx 35rpx;
+  word-break: break-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}

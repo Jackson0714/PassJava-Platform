@@ -1,0 +1,13 @@
+<checkbox-group wx:if="{{data.tag === 'todogroup'}}" class="{{data.attr.class}}" bindchange="_change">
+    <block wx:if="{{data.child}}" wx:for="{{data.child}}" wx:for-item="item" wx:key="i">
+        <label wx:if="{{item.tag}}" class="{{item.attr.class}}">
+            <block wx:if="{{item.child}}" wx:for="{{item.child}}" wx:for-item="item" wx:key="i">
+                <!--解析选择框-->
+                <checkbox wx:if="{{item.tag === 'checkbox'}}" class="{{item.attr.class}}" value="{{item.attr.value}}" data-_e="{{item}}" checked="{{item.attr.checked}}" disabled="{{item.attr.disabled}}"/>
+
+                <!--解析文字-->
+                <decode wx:if="{{item.child}}" nodes="{{item}}"/>
+            </block>
+        </label>
+    </block>
+</checkbox-group>

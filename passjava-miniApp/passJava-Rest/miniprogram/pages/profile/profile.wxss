@@ -1,0 +1,141 @@
+/**index.wxss**/
+
+page {
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.member-info-wrapper {
+  width: 100%;
+  height: 424rpx;
+  background-repeat:no-repeat;
+  background-size:100% 100%;
+  background-image: url('https://7465-test-0jlva-1254012214.tcb.qcloud.la/index/pmp_banner_background.png?sign=7eff8eca26f50c3589b2610e6a497c9e&t=1556938626');
+}
+
+.about-wrap {
+  display: flex;
+  flex-direction: column;
+  margin-top:5%;
+  padding-top:10rpx;
+  border:1rpx;
+  color:green;
+  background-color:rgba(72, 255, 0, 0.068);
+  border-style:solid;
+  border-width:1rpx;
+  margin-left:4%;
+  margin-right:2%;
+  border-radius:10rpx;
+}
+
+.top-root {
+ display: flex;
+ flex-wrap: nowrap;
+ flex-direction: row;
+}
+
+.img-root {
+ height: 40px;
+ width: 40px;
+ margin: 5px;
+}
+
+.img {
+ width: 100%;
+ height: 100%;
+}
+
+.top-desc-root {
+ flex: 1;
+ display: flex;
+ flex-direction: column;
+}
+
+.about {
+ font-size: 28rpx;
+ color: #000;
+}
+
+/*时间轴*/
+
+/*外部容器*/
+.listview-container {
+    margin: 10rpx 10rpx;
+}
+
+/*行样式*/
+.relase-log-item {
+    display: flex;
+}
+
+/*时间轴*/
+.relase-log-item .dotline {
+    width: 35px;
+    position: relative;
+}
+
+/*竖线*/
+.relase-log-item .dotline .line {
+    width: 1px;
+    height: 100%;
+    background: #ccc;
+    position: absolute;
+    top: 0;
+    left: 15px; 
+}
+
+/*圆点*/
+.relase-log-item .dotline .dot {
+    width: 11px;
+    height: 11px; 
+    background: #30ac63;
+    position: absolute; 
+    top: 10px; 
+    left: 10px; 
+    border-radius: 50%; 
+}
+
+/*时间戳*/
+.relase-log-item .dotline .time {
+    width: 100%;
+    position: absolute;
+    margin-top: 30px;
+    z-index: 99;
+    font-size: 12px;
+    color: #777;
+    text-align: center;
+}
+
+/*右侧主体内容*/
+.relase-log-item .content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #ddd;
+    margin: 3px 0;
+}
+
+/*描述*/
+.relase-log-item .content .description {
+    font-size: 30rpx;
+    line-height: 68rpx;
+    color: #444;
+    white-space: normal;
+    padding-right: 10px;
+}
+
+/*日期*/
+.relase-log-item .content .date {
+    font-size: 28rpx;
+    line-height: 56rpx;
+    color: #999;
+}
+
+/*版本*/
+.relase-log-item .content .version {
+    font-size: 28rpx;
+    line-height: 56rpx;
+    color: #999;
+}

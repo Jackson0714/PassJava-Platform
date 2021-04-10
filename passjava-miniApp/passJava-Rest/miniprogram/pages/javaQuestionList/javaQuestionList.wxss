@@ -1,0 +1,21 @@
+.loading {
+  height: 50rpx;
+  width: 50rpx;
+  margin-top: 60%;
+  margin-left: 47%;
+}
+
+.no-questions {
+  display: flex;
+  flex-direction: column;
+  margin-top: 200rpx;
+}
+
+.no-questions-image {
+  height: 400rpx;
+  width: 400rpx;
+  margin: auto;
+}
+.no-questions-text {
+  margin: auto;
+}
