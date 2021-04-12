@@ -1,6 +1,7 @@
 package com.jackson0714.passjava.question.controller;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,7 @@ import com.jackson0714.common.utils.R;
 @RestController
 @RequestMapping("question/type")
 public class TypeController {
+
     @Autowired
     private ITypeService ITypeService;
 

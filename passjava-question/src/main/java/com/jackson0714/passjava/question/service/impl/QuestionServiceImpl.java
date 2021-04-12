@@ -84,10 +84,6 @@ public class QuestionServiceImpl extends ServiceImpl<QuestionDao, QuestionEntity
 
         System.out.println("r:" + r);
 
-        if (r.get("code") != 0) {
-            return false;
-        }
-
         return true;
     }
 
