@@ -30,13 +30,18 @@ public class TypeAppController {
     private ITypeService ITypeService;
 
     /**
-     * 列表
+     * 查询
      */
     @RequestMapping("/list")
     //@RequiresPermissions("question:type:list")
     public R list(){
-        List<TypeEntity> typeEntityList = ITypeService.list();
-
+        List<TypeEntity> typeEntityListCache = (List<TypeEntity>) cache.get("typeEntityList");
+        List<TypeEntity> typeEntityList = null;
+        if (typeEntityListCache == null) {
+            System.out.println("The cache is empty");
+            typeEntityList = ITypeService.list();
+            cache.put("typeEntityList", typeEntityList);
+        }
         return R.ok().put("typeEntityList", typeEntityList);
     }
 }
