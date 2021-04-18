@@ -1,4 +1,5 @@
-  
+USE passjava_admin;
+
 insert  into `sys_menu`(`menu_id`,`parent_id`,`name`,`url`,`perms`,`type`,`icon`,`order_num`) 
 values 
 #(31,0,'题目中心','','',0,'editor',0),

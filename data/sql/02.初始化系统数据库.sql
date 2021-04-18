@@ -2,6 +2,8 @@ DROP DATABASE IF EXISTS `passjava_admin`;
 
 CREATE DATABASE passjava_admin CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 
+USE passjava_admin;
+
 -- 菜单
 CREATE TABLE `sys_menu` (
   `menu_id` bigint NOT NULL AUTO_INCREMENT,
