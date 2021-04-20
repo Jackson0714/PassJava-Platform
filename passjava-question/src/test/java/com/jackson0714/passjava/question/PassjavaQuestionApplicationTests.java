@@ -6,14 +6,31 @@ import com.jackson0714.passjava.question.service.ITypeService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 
 import java.util.List;
+import java.util.UUID;
 
 @SpringBootTest
 class PassjavaQuestionApplicationTests {
 
     @Autowired
     ITypeService ITypeService;
+
+    @Autowired
+    StringRedisTemplate stringRedisTemplate;
+
+    @Test
+    public void TestStringRedisTemplate() {
+        // 初始化 redis 组件
+        ValueOperations<String, String> ops = stringRedisTemplate.opsForValue();
+        // 存储数据
+        ops.set("悟空", "悟空聊架构_" + UUID.randomUUID().toString());
+        // 查询数据
+        String wukong = ops.get("悟空");
+        System.out.println(wukong);
+    }
 
     // 创建题目类型
     @Test

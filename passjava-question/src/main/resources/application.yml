@@ -1,4 +1,4 @@
-#spring:
+#=spring:
 #  datasource:
 #      driver-class-name: com.mysql.cj.jdbc.Driver
 #      url: jdbc:mysql://129.211.188.xxxx:xxxx/passjava_qms?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
@@ -38,3 +38,13 @@ logging:
 spring:
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
+
+  redis:
+    host: 127.0.0.1
+    port: 6379
+
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://127.0.0.1:3306/passjava_qms?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT
+#    username: root
+#    password: huangz01

@@ -54,7 +54,7 @@ public class QuestionServiceImpl extends ServiceImpl<QuestionDao, QuestionEntity
     @Override
     public boolean saveQuestion(QuestionEntity question) {
         boolean saveResult = save(question);
-        saveEs(question);
+        //saveEs(question);
 
         return true;
     }
@@ -62,7 +62,8 @@ public class QuestionServiceImpl extends ServiceImpl<QuestionDao, QuestionEntity
     @Override
     public boolean updateQuestion(QuestionEntity question) {
         updateById(question);
-        saveEs(question);
+        //saveEs(question);
+
         return true;
     }
 
