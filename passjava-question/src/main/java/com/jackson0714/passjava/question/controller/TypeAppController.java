@@ -16,8 +16,8 @@ import java.util.*;
 /**
  * 题目-题目类型表
  *
- * @author jackson0714
- * @email jackson0585@163.com
+ * @author：公众号：悟空聊架构
+ * @website：www.passjava.cn
  * @date 2020-04-25 22:34:04
  */
 @RestController
@@ -29,11 +29,8 @@ public class TypeAppController {
     @Autowired
     private ITypeService ITypeService;
 
-    @Autowired
-    StringRedisTemplate stringRedisTemplate;
-
     /**
-     * 查询题目类型列表
+     * 查询题目类型列表 by hashmap
      *
      * @author：公众号：悟空聊架构
      * @website：www.passjava.cn
@@ -54,7 +51,7 @@ public class TypeAppController {
     }
 
     /**
-     * 查询题目类型列表
+     * 查询题目类型列表 by redis
      *
      * @author：公众号：悟空聊架构
      * @website：www.passjava.cn
@@ -62,21 +59,20 @@ public class TypeAppController {
     @RequestMapping("/list-by-redis")
     public R listByRedis(){
 
-        // 初始化 redis 组件
-        ValueOperations<String, String> ops = stringRedisTemplate.opsForValue();
+        List<TypeEntity> typeEntityList = ITypeService.getTypeEntityList();
+        return R.ok().put("typeEntityList", typeEntityList);
+    }
 
-        // 查询数据
-        String typeEntityListCache = ops.get("typeEntityList");
-        // 如果缓存中没有数据
-        if (typeEntityListCache == null) {
-            System.out.println("The cache is empty");
-            // 从数据库中查询数据
-            List<TypeEntity> typeEntityListFromDb = ITypeService.list();
-            // 将数据放入缓存中
-            String s = JSON.toJSONString(typeEntityListFromDb);
-            ops.set("typeEntityList", s);
-        }
-        List<TypeEntity> typeEntityList = (List<TypeEntity>) JSON.parseObject(typeEntityListCache);
+    /**
+     * 查询题目类型列表 by redis 加锁
+     *
+     * @author：公众号：悟空聊架构
+     * @website：www.passjava.cn
+     */
+    @RequestMapping("/list-by-redis-lock")
+    public R listByRedisLock(){
+
+        List<TypeEntity> typeEntityList = ITypeService.getTypeEntityListByLock();
         return R.ok().put("typeEntityList", typeEntityList);
     }
 }
