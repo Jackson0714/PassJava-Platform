@@ -51,16 +51,17 @@ Windows 版正在更新中，可参考 Mac 版的部署教程。
 - [22.SpringCloud整合OSS对象存储](http://www.passjava.cn/#/02.PassJava架构篇/12.SpringCloud整合OSS对象存储)
 - [23.整合统一异常处理](http://www.passjava.cn/#/02.PassJava架构篇/13.整合统一异常处理.md)
 - [24.Elasticsearch上篇（原理）](http://www.passjava.cn/#/02.PassJava架构篇/14.Elasticsearch原理.md)
-- [25.Elasticsearch中篇（实战）更新中](http://www.passjava.cn/#/02.PassJava架构篇/14.Elasticsearch实战.md)
-- [26.Elasticsearch下篇（集群部署）更新中](http://www.passjava.cn/#/02.PassJava架构篇/14.Elasticsearch集群部署.md)
+- [25.Elasticsearch中篇（实战）](http://www.passjava.cn/#/02.PassJava架构篇/15.Elasticsearch实战.md)
+- [26.Elasticsearch下篇（集群部署）更新中](http://www.passjava.cn/#/02.PassJava架构篇/16.Elasticsearch集群部署.md)
 - [27.微服务架构中的链路追踪](http://www.passjava.cn/#/02.PassJava架构篇/17.微服务架构中的链路追踪.md)
-- [28.20张图手摸手教你性能压测](http://www.passjava.cn/#/02.PassJava架构篇/18.20张图手摸手教你性能压测.md)
+- [28.48张图手摸手教你性能压测](http://www.passjava.cn/#/02.PassJava架构篇/18.48张图手摸手教你性能压测.md)
+- [29.缓存实战（上篇）](http://www.passjava.cn/#/02.PassJava架构篇/19.缓存实战（上篇）.md)
 
 ## 小程序演示
 
-![mark](http://cdn.jayh.club/blog/20200405/ik8h4UItdnSA.jpg?imageslim)
+![](http://cdn.jayh.club/blog/20200405/ik8h4UItdnSA.jpg?imageslim)
 
-![mark](http://cdn.jayh.club/blog/20200405/pjfJNfuiXVnF.gif)
+![](http://cdn.jayh.club/blog/20200405/pjfJNfuiXVnF.gif)
 
 ## 项目地址
 
@@ -90,10 +91,11 @@ Windows 版正在更新中，可参考 Mac 版的部署教程。
 - [13.SpringCloud整合OSS对象存储](http://www.passjava.cn/#/02.PassJava架构篇/12.SpringCloud整合OSS对象存储)
 - [14.整合统一异常处理](http://www.passjava.cn/#/02.PassJava架构篇/13.整合统一异常处理)
 - [14.Elasticsearch上篇（原理）](http://www.passjava.cn/#/02.PassJava架构篇/14.Elasticsearch原理)
-- [15.Elasticsearch中篇（实战）更新中](http://www.passjava.cn/#/02.PassJava架构篇/14.Elasticsearch实战)
-- [16.Elasticsearch下篇（集群部署）更新中](http://www.passjava.cn/#/02.PassJava架构篇/14.Elasticsearch集群部署)
+- [15.Elasticsearch中篇（实战）](http://www.passjava.cn/#/02.PassJava架构篇/15.Elasticsearch实战.md)
+- [16.Elasticsearch下篇（集群部署）更新中](http://www.passjava.cn/#/02.PassJava架构篇/16.Elasticsearch集群部署.md)
 - [17.微服务架构中的链路追踪](http://www.passjava.cn/#/02.PassJava架构篇/17.微服务架构中的链路追踪.md)
-- [18.48张图手摸手教你性能压测](http://www.passjava.cn/#/02.PassJava架构篇/18.20张图手摸手教你性能压测.md)
+- [18.48张图手摸手教你性能压测](http://www.passjava.cn/#/02.PassJava架构篇/18.48张图手摸手教你性能压测.md)
+- [19.缓存实战（上篇）](http://www.passjava.cn/#/02.PassJava架构篇/19.缓存实战（上篇）.md)
 
 ## Java并发多线程
 
@@ -180,8 +182,6 @@ Windows 版正在更新中，可参考 Mac 版的部署教程。
 - [05.Docker安装redis](http://www.passjava.cn/#/05.安装部署篇/05.docker安装redis)
 - [06.本地开发环境配置](http://www.passjava.cn/#/05.安装部署篇/06.本地开发环境配置)
 - [07.配置Git](http://www.passjava.cn/#/05.安装部署篇/07.配置git)
-
-- [08.Mac 部署项目](http://www.passjava.cn/#/01.项目简介/7.本地部署项目Mac版)
 
 ## 架构图解
   
