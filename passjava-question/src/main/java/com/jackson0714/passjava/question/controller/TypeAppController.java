@@ -75,4 +75,17 @@ public class TypeAppController {
         List<TypeEntity> typeEntityList = ITypeService.getTypeEntityListByLock();
         return R.ok().put("typeEntityList", typeEntityList);
     }
+
+    /**
+     * 查询题目类型列表 by redis 分布式锁
+     *
+     * @author：公众号：悟空聊架构
+     * @website：www.passjava.cn
+     */
+    @RequestMapping("/list-by-redis-distributed-lock")
+    public R listByRedisDistributedLock() throws InterruptedException {
+
+        List<TypeEntity> typeEntityList = ITypeService.getTypeEntityListByRedisDistributedLock();
+        return R.ok().put("typeEntityList", typeEntityList);
+    }
 }
