@@ -1,94 +1,127 @@
-PassJava（Java面试学习平台） 项目全套学习教程连载中，[关注公众号](#公众号)第一时间获取。
+PassJava-Portal 基于vue、element-ui构建开发，实现 PassJava 后台管理前端功能，提供一套更优的前端解决方案。
 
+# 启动 Admin 后台
 
-## 简介
-- PassJava-Portal 基于vue、element-ui构建开发，实现PassJava后台管理前端功能，提供一套更优的前端解决方案
-- PassJava-Platform 项目基于SpringCloud的业务平台
-- PassJava-Learning 项目是PassJava（佳必过）项目的学习教程。对架构、业务、技术要点进行讲解。
-- PassJava 是一款Java`面试刷题`的开源系统，可以用零碎时间利用小程序查看常见面试题，夯实Java基础。
-- PassJava 项目可以教会你如何搭建SpringBoot项目，Spring Cloud项目
-- 采用流行的技术，如 SpringBoot、MyBatis、Redis、 MySql、 MongoDB、 RabbitMQ、Elasticsearch，采用Docker容器化部署。
+Admin 管理后台的技术选型还是用的 Vue，所以需要使用 npm 工具来安装依赖。
 
-## 更好的阅读体验
+## 1 安装 npm、nvm
 
-- 文档地址：[http://www.jayh.club](http://www.jayh.club)
-- 备用地址：[https://jackson0714.github.io/PassJava-Learning](https://jackson0714.github.io/PassJava-Learning/)
+使用 homebrew 安装 npm
 
-## 文档连载目录
+```sh
+brew install npm
+```
 
-- [打造一款 刷Java 知识的小程序](https://www.cnblogs.com/jackson0714/p/passJava1.html)
-- [打造一款 刷Java 知识的小程序（二）](https://www.cnblogs.com/jackson0714/p/passJava2.html)
-- [01.五分钟搞懂分布式基础概念](http://www.jayh.club/#/04.SpringCloud学习篇/01.分布式基础概念)
-- [02.快速搭建Linux环境-运维必备](http://www.jayh.club/#/05.安装部署篇/01.环境搭建篇)
-- [03.配置虚拟机网络](http://www.jayh.club/#/05.安装部署篇/02.配置虚拟机网络)
-- [04.安装Docker](http://www.jayh.club/#/05.安装部署篇/03.安装docker)
-- [05.Docker安装mysql](http://www.jayh.club/#/05.安装部署篇/04.docker安装mysql)
-- [06.Docker安装redis](http://www.jayh.club/#/05.安装部署篇/05.docker安装redis)
-- [07.本地开发环境配置](http://www.jayh.club/#/05.安装部署篇/06.本地开发环境配置)
-- [08.配置Git](http://www.jayh.club/#/05.安装部署篇/07.配置git)
-- [09.初始化项目和添加微服务](http://www.jayh.club/#/02.PassJava架构篇/01.创建项目和添加模块)
-- [10.PassJava-微服务划分图](http://www.jayh.club/#/01.项目简介/3.微服务划分图)
-- [11.初始化数据库和表](http://www.jayh.club/#/02.PassJava架构篇/02.创建数据库和表)
-- [12.搭建管理后台](http://www.jayh.club/#/02.PassJava架构篇/03.搭建管理后台)
-- [13.自动生成前后端代码](http://www.jayh.club/#/02.PassJava架构篇/04.自动生成前后端代码)
-- [14.整合MyBatis-Plus实现CRUD](http://www.jayh.club/#/02.PassJava架构篇/05.整合MyBatis-Plus实现CRUD)
-- [15.生成所有微服务的CRUD代码](http://www.jayh.club/#/02.PassJava架构篇/06.生成所有微服务的CRUD代码)
-- [16.Spring Cloud Alibaba 组件简介](http://www.jayh.club/#/02.PassJava架构篇/07.SpringCloudAlibaba组件简介)
-- [17.SpringCloud整合Alibaba-Nacos注册中心](http://www.jayh.club/#/02.PassJava架构篇/08.SpringCloud整合Alibaba-Nacos组件)
-- [18.SpringCloud整合OpenFeign组件](http://www.jayh.club/#/02.PassJava架构篇/09.SpringCloud整合OpenFeign组件)
-- [19.SpringCloud整合Alibaba-Nacos配置中心](http://www.jayh.club/#/02.PassJava架构篇/10.SpringCloud整合Nacos配置中心)
+![](http://cdn.jayh.club/uPic/image-20210416204951214.png)
 
-## 小程序演示
+使用 homebrew 安装 nvm
 
-![mark](http://cdn.jayh.club/blog/20200405/ik8h4UItdnSA.jpg?imageslim)
+```
+brew install nvm
+```
 
-![mark](http://cdn.jayh.club/blog/20200405/pjfJNfuiXVnF.gif)
+![](http://cdn.jayh.club/uPic/image-20210416211547660.png)
 
-## 项目地址
+## 2 切换镜像源
 
-[PassJava](https://github.com/Jackson0714/PassJava-Platform)
+默认的 npm 使用的是官方的镜像源，我们切换为国内的淘宝镜像源。
 
-## 介绍
+``` sh
+npm install -g cnpm --registry=https://registry.npm.taobao.org --verbose
+```
 
-- [PassJava 架构及功能概览](http://www.jayh.club/#/01.项目简介/2.项目微服务架构图)
-- [PassJava 学习所需知识点](http://www.jayh.club/#/01.项目简介/5.项目前置要求)
+![](http://cdn.jayh.club/uPic/image-20210416205116707.png)
 
-## 架构篇
+ ## 3 安装 node_module
 
-> 手把手教你搭建一个PassJava 中使用的 SpringBoot 框架
+仓库里面并没有将依赖包一起上传，因为依赖包太大了，所以可在本地通过如下命令安装依赖包，这个是一次性的，后面不需要再执行。
 
-## 业务篇
+进入到 passjava-platform/passjava-portal 目录，执行如下命令来安装依赖：
 
-> 全面解析 PassJava 中使用的数据库表结构
+```sh
+cnpm install
+```
 
-## SpringBoot 学习篇
+![](http://cdn.jayh.club/uPic/image-20210416211729789.png)
 
-> PassJava 中一些功能的技术要点解析
+启动前端portal
 
-## 部署篇
+```sh
+npm run dev
+```
 
-> PassJava 开发及生产环境的搭建
+报错，提示 Node Sass 不兼容当前的系统：
 
-- [02.快速搭建Linux环境-运维必备](http://www.jayh.club/#/05.安装部署篇/01.环境搭建篇)
-- [03.配置虚拟机网络](http://www.jayh.club/#/05.安装部署篇/02.配置虚拟机网络)
-- [04.安装Docker](http://www.jayh.club/#/05.安装部署篇/03.安装docker)
-- [05.Docker安装mysql](http://www.jayh.club/#/05.安装部署篇/04.docker安装mysql)
-- [06.Docker安装redis](http://www.jayh.club/#/05.安装部署篇/05.docker安装redis)
-- [07.本地开发环境配置](http://www.jayh.club/#/05.安装部署篇/06.本地开发环境配置)
-- [08.配置Git](http://www.jayh.club/#/05.安装部署篇/07.配置git)
+``` sh
+Node Sass does not yet support your current environment: OS X Unsupported architecture (arm64) with Unsupported runtime (88)
+```
 
-## 参考篇
+![](http://cdn.jayh.club/uPic/image-20210416212055167.png)
 
-> PassJava 相关技术的使用教程
+根据网上提供的解决方案，要先卸载 Node Saas
 
-## 工具篇
+``` sh
+cnpm uninstall node-sass
+```
 
-> 一些常用开发工具的使用
+但是又提示 chromedriver 安装失败（当前操作系统不兼容），根据网上的解决方案，单独安装，但依旧提示 64 位系统不兼容，于是我把 package.json 文件中的 "chromedriver": "2.27.2" 删掉了，问题迎刃而解！最新的代码已删除该依赖项配置。
 
+先删除之前安装 node_modules
 
+```sh
+rm -rf ./node_modules/
+```
 
-## 公众号
+再次执行卸载 node-sass 的命令：
 
-PassJava 项目全套学习教程连载中，关注公众号「**wkljg**」第一时间获取。
+``` sh
+cnpm uninstall node-sass
+```
 
-![公众号图片](http://cdn.jayh.club/blog/20200405/K6buDl2MUwGe.png?imageslim)
+卸载成功后，安装 node-sass
+
+``` sh
+cnpm install node-sass  --unsafe-perm --save-dev
+```
+
+![image-20210416224957858](http://cdn.jayh.club/uPic/image-20210416224957858.png)
+
+重新安装依赖
+
+``` sh
+cnpm install
+```
+
+![](http://cdn.jayh.club/uPic/image-20210416225210584.png)
+
+## 4 启动后台
+
+在根目录执行如下命令就可以启动后台了：
+
+```sh
+npm run dev
+```
+
+启动成功后，会自动打开浏览器，访问的地址是 http://localhost:8081
+
+![](http://cdn.jayh.club/uPic/image-20210416225322860.png)
+
+## 5 登陆后台
+
+账号密码都是 admin，输入验证码即可登录。注意：如果验证码没有出现，说明 RenrenApplication 微服务有异常，请查看 IDEA 中打印出的 log。
+
+登录后台界面如下图所示：
+
+![PassJava后台](http://cdn.jayh.club/uPic/DQDm4seRS85s.png)
+
+## 6 添加题目分类
+
+首先需要给题目进行分类，在后台点击新增类型，如下图所示：
+
+![](http://cdn.jayh.club/uPic/image-20210419215359713.png)
+
+注意：上传图片前需要启动 thirdparty 微服务，且 OSS 配置正确。
+
+## 7 添加面试题
+
+![](http://cdn.jayh.club/uPic/image-20210419220316407.png)
