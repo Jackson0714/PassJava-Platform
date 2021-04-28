@@ -13,12 +13,17 @@ Windows 版正在更新中，可参考 Mac 版的部署教程。
 
 前后端都在这个仓库：
 
-后台：https://github.com/Jackson0714/PassJava-Platform
+后台代码地址：https://github.com/Jackson0714/PassJava-Platform
 
-前端 Vue：https://github.com/Jackson0714/PassJava-Platform/tree/master/passjava-portal
+-> [后端部署教程](http://www.passjava.cn/#/01.项目简介/7.本地部署项目Mac版)
 
-小程序：https://github.com/Jackson0714/PassJava-Platform/tree/master/passjava-miniApp
+前端 Vue 代码地址：https://github.com/Jackson0714/PassJava-Platform/tree/master/passjava-portal
 
+-> [前端部署教程](https://github.com/Jackson0714/PassJava-Platform/tree/master/passjava-portal)
+
+小程序代码地址：https://github.com/Jackson0714/PassJava-Platform/tree/master/passjava-miniApp
+
+-> [小程序部署教程](https://github.com/Jackson0714/PassJava-Platform/blob/master/passjava-miniApp/README.md)
 
 ## 简介
 
