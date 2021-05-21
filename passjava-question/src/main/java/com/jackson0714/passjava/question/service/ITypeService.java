@@ -23,5 +23,7 @@ public interface ITypeService extends IService<TypeEntity> {
     List<TypeEntity> getTypeEntityListByLock();
 
     List<TypeEntity> getTypeEntityListByRedisDistributedLock() throws InterruptedException;
+
+    List<TypeEntity> getTypeEntityListByRedissonDistributedLock();
 }
 

@@ -3,6 +3,8 @@ package com.jackson0714.passjava.question.service.impl;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
 import org.apache.commons.lang.StringUtils;
+import org.redisson.api.RLock;
+import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
@@ -33,6 +35,9 @@ public class TypeServiceImpl extends ServiceImpl<TypeDao, TypeEntity> implements
 
     @Autowired
     StringRedisTemplate redisTemplate;
+
+    @Autowired
+    RedissonClient redisson;
 
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
@@ -100,6 +105,11 @@ public class TypeServiceImpl extends ServiceImpl<TypeDao, TypeEntity> implements
         return typeEntityListFromDb;
     }
 
+    /**
+     * 分布式锁钻石方案
+     * @return list
+     * @throws InterruptedException
+     */
     @Override
     public List<TypeEntity> getTypeEntityListByRedisDistributedLock() throws InterruptedException {
         // 1.生成唯一 id
@@ -125,6 +135,29 @@ public class TypeServiceImpl extends ServiceImpl<TypeDao, TypeEntity> implements
             // 5.抢占失败，等待锁释放
             return getTypeEntityListByRedisDistributedLock();
         }
+    }
+
+    @Override
+    public List<TypeEntity> getTypeEntityListByRedissonDistributedLock() {
+        // 1.设置分布式锁
+        RLock lock = redisson.getLock("lock");
+        // 2.占用锁
+        lock.lock();
+        System.out.println("加锁成功，执行后续代码。线程 ID：" + Thread.currentThread().getId());
+        List<TypeEntity> typeEntityListFromDb = null;
+        try {
+            // 3.获取数据
+            typeEntityListFromDb = getDataFromDB();
+            Thread.sleep(10000); // 模拟长时间执行任务
+        } catch (Exception e) {
+            System.out.println("异常");
+            // TODO
+        } finally {
+            // 4.释放锁
+            System.out.println("释放成功，执行后续代码。线程 ID：" + Thread.currentThread().getId());
+            lock.unlock();
+        }
+        return typeEntityListFromDb;
     }
 
 }

@@ -77,7 +77,7 @@ public class TypeAppController {
     }
 
     /**
-     * 查询题目类型列表 by redis 分布式锁
+     * 查询题目类型列表 by redis 分布式锁（钻石方案）
      *
      * @author：公众号：悟空聊架构
      * @website：www.passjava.cn
@@ -86,6 +86,19 @@ public class TypeAppController {
     public R listByRedisDistributedLock() throws InterruptedException {
 
         List<TypeEntity> typeEntityList = ITypeService.getTypeEntityListByRedisDistributedLock();
+        return R.ok().put("typeEntityList", typeEntityList);
+    }
+
+    /**
+     * 查询题目类型列表 by redisson 分布式锁（王者方案）
+     *
+     * @author：公众号：悟空聊架构
+     * @website：www.passjava.cn
+     */
+    @RequestMapping("/list-by-redisson-distributed-lock")
+    public R listByRedissonDistributedLock() throws InterruptedException {
+
+        List<TypeEntity> typeEntityList = ITypeService.getTypeEntityListByRedissonDistributedLock();
         return R.ok().put("typeEntityList", typeEntityList);
     }
 }
