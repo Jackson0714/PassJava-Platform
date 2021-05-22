@@ -137,6 +137,10 @@ public class TypeServiceImpl extends ServiceImpl<TypeDao, TypeEntity> implements
         }
     }
 
+    /**
+     * 分布式锁王者方案
+     * @return list
+     */
     @Override
     public List<TypeEntity> getTypeEntityListByRedissonDistributedLock() {
         // 1.设置分布式锁
@@ -159,5 +163,4 @@ public class TypeServiceImpl extends ServiceImpl<TypeDao, TypeEntity> implements
         }
         return typeEntityListFromDb;
     }
-
 }
