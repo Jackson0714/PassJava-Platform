@@ -73,7 +73,8 @@ Windows 版正在更新中，可参考 Mac 版的部署教程。
 - [27.微服务架构中的链路追踪](http://www.passjava.cn/#/02.PassJava架构篇/17.微服务架构中的链路追踪.md)
 - [28.48张图手摸手教你性能压测](http://www.passjava.cn/#/02.PassJava架构篇/18.48张图手摸手教你性能压测.md)
 - [29.缓存实战（一）](http://www.passjava.cn/#/02.PassJava架构篇/19.缓存实战（一）.md)
-- [30.缓存实战（二）](http://www.passjava.cn/#/02.PassJava架构篇/22.缓存实战（二）分布式锁.md)
+- [30.缓存实战（二）Redis分布式锁](http://www.passjava.cn/#/02.PassJava架构篇/22.缓存实战（二）Redis分布式锁.md)
+- [31.缓存实战（三）Redisson分布式锁](http://www.passjava.cn/#/02.PassJava架构篇/23.缓存实战（三）Redisson分布式锁.md)
 
 ## 小程序演示
 
@@ -113,8 +114,10 @@ Windows 版正在更新中，可参考 Mac 版的部署教程。
 - [16.Elasticsearch下篇（集群部署）更新中](http://www.passjava.cn/#/02.PassJava架构篇/16.Elasticsearch集群部署.md)
 - [17.微服务架构中的链路追踪](http://www.passjava.cn/#/02.PassJava架构篇/17.微服务架构中的链路追踪.md)
 - [18.48张图手摸手教你性能压测](http://www.passjava.cn/#/02.PassJava架构篇/18.48张图手摸手教你性能压测.md)
-- [19.缓存实战（上篇）](http://www.passjava.cn/#/02.PassJava架构篇/19.缓存实战（上篇）.md)
-
+- [29.缓存实战（一）](http://www.passjava.cn/#/02.PassJava架构篇/19.缓存实战（一）.md)
+- [30.缓存实战（二）Redis分布式锁](http://www.passjava.cn/#/02.PassJava架构篇/22.缓存实战（二）Redis分布式锁.md)
+- [31.缓存实战（三）Redisson分布式锁](http://www.passjava.cn/#/02.PassJava架构篇/23.缓存实战（三）Redisson分布式锁.md)
+- 
 ## Java并发多线程
 
 > 从源码层面详细讲解并发多线程
