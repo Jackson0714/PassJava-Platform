@@ -20,7 +20,10 @@ brew install npm
 brew install nvm
 ```
 
+运行结果如下：
+
 ![](http://cdn.jayh.club/uPic/image-20210416211547660.png)
+
 
 ## 2 切换镜像源
 
