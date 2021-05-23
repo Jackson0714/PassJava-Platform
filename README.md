@@ -10,6 +10,23 @@ PassJava 项目全套学习教程连载中，[关注公众号](#公众号)第一
 
 Windows 版正在更新中，可参考 Mac 版的部署教程。
 
+
+前后端都在这个仓库：
+
+
+- 后台代码地址：https://github.com/Jackson0714/PassJava-Platform
+
+:heavy_check_mark: [后端部署教程](http://www.passjava.cn/#/01.项目简介/7.本地部署项目Mac版)
+
+- 前端 Vue 代码地址：https://github.com/Jackson0714/PassJava-Platform/tree/master/passjava-portal
+
+:heavy_check_mark: [前端部署教程](https://github.com/Jackson0714/PassJava-Platform/tree/master/passjava-portal)
+
+- 小程序代码地址：https://github.com/Jackson0714/PassJava-Platform/tree/master/passjava-miniApp
+
+:heavy_check_mark: [小程序部署教程](https://github.com/Jackson0714/PassJava-Platform/blob/master/passjava-miniApp/README.md)
+
+
 ## 简介
 
 - PassJava-Learning项目是PassJava（佳必过）项目的学习教程。对架构、业务、技术要点进行讲解。
