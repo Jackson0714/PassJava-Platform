@@ -1,5 +1,6 @@
 package com.jackson0714.passjava.question.service.impl;
 
+import com.alibaba.fastjson.JSONObject;
 import com.jackson0714.common.to.es.QuestionEsModel;
 import com.jackson0714.common.utils.R;
 import com.jackson0714.passjava.question.entity.TypeEntity;
@@ -8,6 +9,7 @@ import com.jackson0714.passjava.question.service.ITypeService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import java.util.Map;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -52,6 +54,12 @@ public class QuestionServiceImpl extends ServiceImpl<QuestionDao, QuestionEntity
     }
 
     @Override
+    @Cacheable({"question", "hot"})
+    public QuestionEntity info(Long id) {
+        return getById(id);
+    }
+
+    @Override
     public boolean saveQuestion(QuestionEntity question) {
         boolean saveResult = save(question);
         //saveEs(question);
@@ -65,6 +73,13 @@ public class QuestionServiceImpl extends ServiceImpl<QuestionDao, QuestionEntity
         //saveEs(question);
 
         return true;
+    }
+
+    @Override
+    public QuestionEntity createQuestion(QuestionEntity question) {
+        // Mock 返回 id
+        question.setId(123L);
+        return question;
     }
 
     private boolean saveEs(QuestionEntity question) {

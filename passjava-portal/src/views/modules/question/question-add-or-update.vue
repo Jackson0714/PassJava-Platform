@@ -188,7 +188,7 @@ export default {
           this.$http({
             url: this.$http.adornUrl(
               `/question/v1/admin/question/${
-                !this.dataForm.id ? "save" : "update"
+                !this.dataForm.id ? "create" : "update"
               }`
             ),
             method: "post",
