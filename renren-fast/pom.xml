@@ -23,7 +23,7 @@
 		<mssql.version>4.0</mssql.version>
 		<oracle.version>11.2.0.3</oracle.version>
 		<druid.version>1.1.13</druid.version>
-		<quartz.version>2.3.0</quartz.version>
+		<quartz.version>2.3.2</quartz.version>
 		<commons.lang.version>2.6</commons.lang.version>
 		<commons.fileupload.version>1.2.2</commons.fileupload.version>
 		<commons.io.version>2.5</commons.io.version>
