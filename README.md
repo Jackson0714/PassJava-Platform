@@ -26,7 +26,6 @@ Windows 版正在更新中，可参考 Mac 版的部署教程。
 
 :heavy_check_mark: [小程序部署教程](https://github.com/Jackson0714/PassJava-Platform/blob/master/passjava-miniApp/README.md)
 
-
 ## 简介
 
 - PassJava-Learning项目是PassJava（佳必过）项目的学习教程。对架构、业务、技术要点进行讲解。
@@ -41,6 +40,8 @@ Windows 版正在更新中，可参考 Mac 版的部署教程。
 - 备用地址2：http://jayh2018.gitee.io/passjava-learning/#/README
 
 ## PassJava 教程连载目录
+
+关注公众号：悟空聊架构，回复 PDF 获取离线版教程。
 
 - [打造一款 刷Java 知识的小程序](https://www.cnblogs.com/jackson0714/p/passJava1.html)
 - [打造一款 刷Java 知识的小程序（二）](https://www.cnblogs.com/jackson0714/p/passJava2.html)
@@ -75,6 +76,7 @@ Windows 版正在更新中，可参考 Mac 版的部署教程。
 - [29.缓存实战（一）](http://www.passjava.cn/#/02.PassJava架构篇/19.缓存实战（一）.md)
 - [30.缓存实战（二）Redis分布式锁](http://www.passjava.cn/#/02.PassJava架构篇/22.缓存实战（二）Redis分布式锁.md)
 - [31.缓存实战（三）Redisson分布式锁](http://www.passjava.cn/#/02.PassJava架构篇/23.缓存实战（三）Redisson分布式锁.md)
+- [32.缓存实战（四）实战 Spring Cache](http://www.passjava.cn/#/02.PassJava架构篇/24.缓存实战（四）SpringCache.md)
 
 ## 小程序演示
 
@@ -95,29 +97,23 @@ Windows 版正在更新中，可参考 Mac 版的部署教程。
 
 > 手把手教你搭建一个PassJava 中使用的 SpringCloud框架
 
-- [01.初始化项目和添加微服务](http://www.passjava.cn/#/02.PassJava架构篇/01.创建项目和添加模块)
-- [02.PassJava-微服务划分图](http://www.passjava.cn/#/01.项目简介/3.微服务划分图)
-- [03.初始化数据库和表](http://www.passjava.cn/#/02.PassJava架构篇/02.创建数据库和表)
-- [04.搭建管理后台](http://www.passjava.cn/#/02.PassJava架构篇/03.搭建管理后台)
-- [05.自动生成前后端代码](http://www.passjava.cn/#/02.PassJava架构篇/04.自动生成前后端代码)
-- [06.整合MyBatis-Plus实现CRUD](http://www.passjava.cn/#/02.PassJava架构篇/05.整合MyBatis-Plus实现CRUD)
-- [07.生成所有微服务的CRUD代码](http://www.passjava.cn/#/02.PassJava架构篇/06.生成所有微服务的CRUD代码)
-- [08.Spring Cloud Alibaba 组件简介](http://www.passjava.cn/#/02.PassJava架构篇/07.SpringCloudAlibaba组件简介)
-- [09.SpringCloud整合Alibaba-Nacos注册中心](http://www.passjava.cn/#/02.PassJava架构篇/08.SpringCloud整合Alibaba-Nacos组件)
-- [10.SpringCloud整合OpenFeign组件](http://www.passjava.cn/#/02.PassJava架构篇/09.SpringCloud整合OpenFeign组件)
-- [11.SpringCloud整合Alibaba-Nacos配置中心](http://www.passjava.cn/#/02.PassJava架构篇/10.SpringCloud整合Nacos配置中心)
-- [12.SpringCloud整合Gateway网关](http://www.passjava.cn/#/02.PassJava架构篇/11.SpringCloud整合Gateway网关)
-- [13.SpringCloud整合OSS对象存储](http://www.passjava.cn/#/02.PassJava架构篇/12.SpringCloud整合OSS对象存储)
-- [14.整合统一异常处理](http://www.passjava.cn/#/02.PassJava架构篇/13.整合统一异常处理)
-- [14.Elasticsearch上篇（原理）](http://www.passjava.cn/#/02.PassJava架构篇/14.Elasticsearch原理)
-- [15.Elasticsearch中篇（实战）](http://www.passjava.cn/#/02.PassJava架构篇/15.Elasticsearch实战.md)
-- [16.Elasticsearch下篇（集群部署）更新中](http://www.passjava.cn/#/02.PassJava架构篇/16.Elasticsearch集群部署.md)
-- [17.微服务架构中的链路追踪](http://www.passjava.cn/#/02.PassJava架构篇/17.微服务架构中的链路追踪.md)
-- [18.48张图手摸手教你性能压测](http://www.passjava.cn/#/02.PassJava架构篇/18.48张图手摸手教你性能压测.md)
-- [29.缓存实战（一）](http://www.passjava.cn/#/02.PassJava架构篇/19.缓存实战（一）.md)
-- [30.缓存实战（二）Redis分布式锁](http://www.passjava.cn/#/02.PassJava架构篇/22.缓存实战（二）Redis分布式锁.md)
-- [31.缓存实战（三）Redisson分布式锁](http://www.passjava.cn/#/02.PassJava架构篇/23.缓存实战（三）Redisson分布式锁.md)
-- 
+- [01.Spring Cloud Alibaba 组件简介](http://www.passjava.cn/#/02.PassJava架构篇/07.SpringCloudAlibaba组件简介)
+- [02.SpringCloud整合Alibaba-Nacos注册中心](http://www.passjava.cn/#/02.PassJava架构篇/08.SpringCloud整合Alibaba-Nacos组件)
+- [03.SpringCloud整合OpenFeign组件](http://www.passjava.cn/#/02.PassJava架构篇/09.SpringCloud整合OpenFeign组件)
+- [04.SpringCloud整合Alibaba-Nacos配置中心](http://www.passjava.cn/#/02.PassJava架构篇/10.SpringCloud整合Nacos配置中心)
+- [05.SpringCloud整合Gateway网关](http://www.passjava.cn/#/02.PassJava架构篇/11.SpringCloud整合Gateway网关)
+- [06.SpringCloud整合OSS对象存储](http://www.passjava.cn/#/02.PassJava架构篇/12.SpringCloud整合OSS对象存储)
+- [07.整合统一异常处理](http://www.passjava.cn/#/02.PassJava架构篇/13.整合统一异常处理)
+- [08.Elasticsearch上篇（原理）](http://www.passjava.cn/#/02.PassJava架构篇/14.Elasticsearch原理)
+- [09.Elasticsearch中篇（实战）](http://www.passjava.cn/#/02.PassJava架构篇/15.Elasticsearch实战.md)
+- [10.Elasticsearch下篇（集群部署）更新中](http://www.passjava.cn/#/02.PassJava架构篇/16.Elasticsearch集群部署.md)
+- [11.微服务架构中的链路追踪](http://www.passjava.cn/#/02.PassJava架构篇/17.微服务架构中的链路追踪.md)
+- [12.48张图手摸手教你性能压测](http://www.passjava.cn/#/02.PassJava架构篇/18.48张图手摸手教你性能压测.md)
+- [13.缓存实战（一）](http://www.passjava.cn/#/02.PassJava架构篇/19.缓存实战（一）.md)
+- [14.缓存实战（二）Redis分布式锁](http://www.passjava.cn/#/02.PassJava架构篇/22.缓存实战（二）Redis分布式锁.md)
+- [15.缓存实战（三）Redisson分布式锁](http://www.passjava.cn/#/02.PassJava架构篇/23.缓存实战（三）Redisson分布式锁.md)
+- [16.缓存实战（四）实战 Spring Cache](http://www.passjava.cn/#/02.PassJava架构篇/24.缓存实战（四）SpringCache.md)
+
 ## Java并发多线程
 
 > 从源码层面详细讲解并发多线程
@@ -131,6 +127,8 @@ Windows 版正在更新中，可参考 Mac 版的部署教程。
 
 ## 分布式
 
+关注公众号：悟空聊架构，回复`分布式`获取离线版教程。
+
 - [01.分布式基础概念](http://www.passjava.cn/#/92.分布式/01.分布式基础概念.md)
 - [02.这三年被分布式坑惨了，曝光十大坑](http://www.passjava.cn/#/92.分布式/02.分布式中的十种坑.md)
 - [03.用三国杀讲分布式算法，舒适了吧？](http://www.passjava.cn/#/92.分布式/03.用三国杀讲分布式算法，舒适了吧？.md)
@@ -142,10 +140,26 @@ Windows 版正在更新中，可参考 Mac 版的部署教程。
 - [09.QuorumNWR算法](http://www.passjava.cn/#/92.分布式/09.QuorumNWR算法.md)
 - [10.区块链12问和Pow算法](http://www.passjava.cn/#/92.分布式/10.区块链12问.md)
 
-## 悟空故事汇
+## 架构设计
+
+- [01.微服务架构中的两款流量防卫兵](http://www.passjava.cn/#/89.架构图解/01.微服务架构中的两款流量防卫兵.md)
+- [02.浅析扣减库存的方案设计](http://www.passjava.cn/#/89.架构图解/02.浅析扣减库存的方案设计.md)
+- [03.订单系统中的补偿事务设计](http://www.passjava.cn/#/89.架构图解/03.订单系统中的补偿事务设计.md)
+- [04.请警惕Elasticsearch的三大坑](http://www.passjava.cn/#/89.架构图解/04.请警惕Elasticsearch的三大坑.md)
+- [05.B站崩了，聊聊高可用和异地多活](http://www.passjava.cn/#/89.架构图解/05.B站崩了，聊聊高可用和异地多活.md)
+
+## 用故事讲解技术
+
 - [01.如果消息队列都在一个群里，他们会聊什么？](http://www.passjava.cn/#/90.悟空群聊/1.如果消息队列都在一个群里，他们会聊什么？.md)
 - [02.我是一个秒杀请求，正在逃离这颗星球](http://www.passjava.cn/#/91.悟空讲故事/01.我是一个秒杀请求，正在逃离这颗星球.md)
 - [03.东汉末年，他们把熔断限流玩到了极致](http://www.passjava.cn/#/91.悟空讲故事/02.东汉末年，他们把熔断限流玩到了极致.md)
+- [04.为什么要除夕，原来是内存爆了](http://www.passjava.cn/#/91.悟空讲故事/04.为什么要除夕，原来是内存爆了.md)
+- [05.订单系统中的补偿事务设计](http://www.passjava.cn/#/91.悟空讲故事/05.订单系统中的补偿事务设计.md)
+
+
+## 面试必背
+- [01.Redis 面试题汇总 第一季](http://www.passjava.cn/#/88.Interview/01.Redis/Redis1.md)
+
 
 ## 悟空学习群问题汇总
 - [01.悟空群聊问题20201026-删除binlog问题](http://www.passjava.cn/#/102.学习群问题汇总/01.20201026_删除binlog问题.md)
@@ -170,6 +184,10 @@ Windows 版正在更新中，可参考 Mac 版的部署教程。
 - [04.图床神器配置](http://www.passjava.cn/#/99.tools/04.图床神器配置)
 - [05.我的常用工具](http://www.passjava.cn/#/99.tools/05.我的常用工具)
 - [06.Idea的十八般武艺](http://www.passjava.cn/#/99.tools/06.Idea的十八般武艺)
+- [07.画架构原理图，还是它好使](http://www.passjava.cn/#/99.tools/07.画架构原理图，还是它好使)
+- [08.添加Gitee密钥](http://www.passjava.cn/#/99.tools/08.添加Gitee密钥)
+- [09.给自己的博客docsify加上评论功能](http://www.passjava.cn/#/99.tools/09.给自己的博客docsify加上评论功能)
+- [92.Java环境问题](http://www.passjava.cn/#/99.tools/92.Java环境问题)
 - [93.IDEA快捷键](http://www.passjava.cn/#/99.tools/93.IDEA快捷键)
 - [94.Ubuntu16.04安装最新版nodejs](http://www.passjava.cn/#/99.tools/94.Ubuntu16_04安装最新版nodejs)
 - [95.VSCode快速生成Vue模板](http://www.passjava.cn/#/99.tools/95.VSCode快速生成Vue模板)
@@ -203,10 +221,6 @@ Windows 版正在更新中，可参考 Mac 版的部署教程。
 - [05.Docker安装redis](http://www.passjava.cn/#/05.安装部署篇/05.docker安装redis)
 - [06.本地开发环境配置](http://www.passjava.cn/#/05.安装部署篇/06.本地开发环境配置)
 - [07.配置Git](http://www.passjava.cn/#/05.安装部署篇/07.配置git)
-
-## 架构图解
-  
-- [01.微服务架构中的两款流量防卫兵](http://www.passjava.cn/#/89.架构图解/01.微服务架构中的两款流量防卫兵.md)
 
 ## LeetCode刷题
 - [LeetCode数组第一题](http://www.passjava.cn/#/92.LeetCode算法题/01.数组/001.两数之和-数组-LeetCode第1题)
