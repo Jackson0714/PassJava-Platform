@@ -112,7 +112,7 @@ public class QuestionController {
         return IQuestionService.createQuestion(question);
     }
 
-    @RequestMapping("/remove/{id}"
+    @RequestMapping("/remove/{id}")
     @CacheEvict(value = "hot")
     public R remove(@PathVariable("id") Long id){
         IQuestionService.removeById(id);
