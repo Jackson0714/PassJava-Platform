@@ -9,7 +9,7 @@ spring:
     driverClassName: com.mysql.jdbc.Driver
     url: jdbc:mysql://192.168.10.160:3306/passjava_qms?useUnicode=true&characterEncoding=UTF-8&useSSL=false
     username: root
-    password: root
+    password: abc123__
     #oracle配置
     #    driverClassName: oracle.jdbc.OracleDriver
     #    url: jdbc:oracle:thin:@47.100.206.162:1521:xe

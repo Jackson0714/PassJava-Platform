@@ -8,9 +8,12 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 
 import javax.sql.DataSource;
 
+/**
+ * @author wukong
+ */
 @RefreshScope
 @EnableDiscoveryClient
-@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
+@SpringBootApplication
 public class PassjavaGatewayApplication {
 
     public static void main(String[] args) {

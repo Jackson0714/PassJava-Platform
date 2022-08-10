@@ -1,5 +1,6 @@
 package com.jackson0714.passjava.member.controller;
 
+import com.alibaba.nacos.api.config.annotation.NacosValue;
 import com.jackson0714.common.utils.R;
 import com.jackson0714.passjava.member.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ public class SampleController {
     @Autowired
     MemberService memberService;
 
-    @Value("${member.nickname}")
+    @NacosValue("${member.nickname}")
     private  String nickname;
 
     @Value("${member.age}")

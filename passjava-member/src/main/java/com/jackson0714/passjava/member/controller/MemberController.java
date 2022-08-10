@@ -102,4 +102,14 @@ public class MemberController {
         return R.ok();
     }
 
+    @RequestMapping("/createMember")
+    public R createMember(@RequestBody MemberEntity member) throws Exception {
+        // 执行create 逻辑
+
+        // 调用营销系统，发放优惠券
+        memberService.sendCoupon(1);
+
+        return R.ok();
+    }
+
 }

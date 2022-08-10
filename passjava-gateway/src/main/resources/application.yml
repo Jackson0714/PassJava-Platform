@@ -29,7 +29,32 @@ spring:
             - Path=/api/** # 如果前端请求路径包含 api，则应用这条路由规则
           filters: #过滤器
             - RewritePath=/api/(?<segment>.*),/renren-fast/$\{segment} # 将跳转路径中包含的api替换成renren-fast，但是替换的url不会在前端显示，还是网关的访问路径。这里不是跳转到新的路径，而是转发请求。
+  datasource:
+    url: jdbc:mysql://localhost:3306/passjava_auth?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: abc123__
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    database: mysql
+    show-sql: true
 
 logging:
   level:
     com.jackson0714.passjava: debug
+    org:
+      springframework:
+        cloud:
+          gateway: debug
+
+passjava:
+  gateway:
+    jwt:
+      enabled: true   #是否开启JWT登录认证功能
+      secret: passjava  # JWT私钥，用于校验JWT令牌的合法性
+      expiration: 3600000 #JWT令牌的有效期，用于校验JWT令牌的合法性
+      header: access-token #HTTP请求的Header名称，该Header作为参数传递JWT令牌
+      userParamName: username  #用户登录认证用户名参数名称
+      pwdParamName: password  #用户登录认证密码参数名称
+      useDefaultController: true # 是否使用默认的JwtAuthController

@@ -1,5 +1,7 @@
 package com.jackson0714.passjava.member.service.impl;
 
+import org.springframework.retry.annotation.Backoff;
+import org.springframework.retry.annotation.Retryable;
 import org.springframework.stereotype.Service;
 import java.util.Map;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -24,6 +26,17 @@ public class MemberServiceImpl extends ServiceImpl<MemberDao, MemberEntity> impl
         );
 
         return new PageUtils(page);
+    }
+
+    @Override
+    @Retryable(value = Exception.class,maxAttempts = 3,backoff = @Backoff(delay = 2000, multiplier = 1.5))
+    public String sendCoupon(int num) throws Exception {
+
+        if (num <= 0 ) {
+            throw new Exception("发放的优惠券数量必须大于 0");
+        }
+
+        return "success";
     }
 
 }
