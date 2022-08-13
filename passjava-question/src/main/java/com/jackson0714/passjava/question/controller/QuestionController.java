@@ -14,12 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.jackson0714.passjava.question.entity.QuestionEntity;
 import com.jackson0714.passjava.question.service.IQuestionService;
-import com.jackson0714.common.utils.PageUtils;
-import com.jackson0714.common.utils.R;
+import com.jackson0714.passjava.common.utils.PageUtils;
+import com.jackson0714.passjava.common.utils.R;
 
 import javax.validation.Valid;
-
-import static org.apache.tomcat.jni.Lock.lock;
 
 
 /**

@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.jackson0714.passjava.study.entity.ViewLogEntity;
 import com.jackson0714.passjava.study.service.ViewLogService;
-import com.jackson0714.common.utils.PageUtils;
-import com.jackson0714.common.utils.R;
+import com.jackson0714.passjava.common.utils.PageUtils;
+import com.jackson0714.passjava.common.utils.R;
 
 
 

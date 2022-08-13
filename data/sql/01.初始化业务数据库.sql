@@ -41,6 +41,7 @@ CREATE TABLE ums_member
    del_flag             TINYINT(1) DEFAULT 0 COMMENT '删除标记（0-正常，1-删除）',
    create_time          DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
    update_time          DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
+   user_id              VARCHAR(64) COMMENT '用户账户名',
    PRIMARY KEY (id)
 );
 
@@ -250,3 +251,24 @@ CREATE TABLE chms_access_token
 ALTER TABLE chms_access_token COMMENT '渠道-认证表';
 
 
+
+USE passjava_auth;
+
+/*==============================================================*/
+/* Table: sys_user                                          */
+/*==============================================================*/
+
+DROP TABLE IF EXISTS `sys_user`;
+CREATE TABLE `sys_user` (
+                            `username` varchar(50) NOT NULL,
+                            `password` varchar(255) DEFAULT NULL,
+                            `org_id` int DEFAULT NULL,
+                            `enabled` bit(1) DEFAULT NULL,
+                            `phone` varchar(20) DEFAULT NULL,
+                            `email` varchar(50) DEFAULT NULL,
+                            `create_time` datetime DEFAULT NULL,
+                            `update_time` datetime DEFAULT NULL,
+                            `id` int NOT NULL AUTO_INCREMENT,
+                            `user_id` varchar(64) NOT NULL,
+                            PRIMARY KEY (`id`,`user_id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

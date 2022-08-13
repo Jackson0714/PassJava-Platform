@@ -1,7 +1,7 @@
 package com.jackson0714.passjava.study.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.jackson0714.common.utils.PageUtils;
+import com.jackson0714.passjava.common.utils.PageUtils;
 import com.jackson0714.passjava.study.entity.StudyTimeEntity;
 
 import java.util.Map;

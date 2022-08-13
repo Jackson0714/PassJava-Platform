@@ -1,6 +1,7 @@
 package com.jackson0714.passjava.gateway;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -13,7 +14,7 @@ import javax.sql.DataSource;
  */
 @RefreshScope
 @EnableDiscoveryClient
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.jackson0714.passjava"}, exclude = {DataSourceAutoConfiguration.class})
 public class PassjavaGatewayApplication {
 
     public static void main(String[] args) {

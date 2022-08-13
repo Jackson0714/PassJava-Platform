@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.jackson0714.passjava.channel.entity.AccessTokenEntity;
 import com.jackson0714.passjava.channel.service.AccessTokenService;
-import com.jackson0714.common.utils.PageUtils;
-import com.jackson0714.common.utils.R;
+import com.jackson0714.passjava.common.utils.PageUtils;
+import com.jackson0714.passjava.common.utils.R;
 
 
 

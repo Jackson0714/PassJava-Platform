@@ -1,7 +1,7 @@
 package com.jackson0714.passjava.channel.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.jackson0714.common.utils.PageUtils;
+import com.jackson0714.passjava.common.utils.PageUtils;
 import com.jackson0714.passjava.channel.entity.ChannelEntity;
 
 import java.util.Map;

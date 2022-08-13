@@ -1,10 +1,8 @@
 package com.jackson0714.passjava.question.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.jackson0714.common.utils.PageUtils;
-import com.jackson0714.common.utils.R;
+import com.jackson0714.passjava.common.utils.PageUtils;
 import com.jackson0714.passjava.question.entity.QuestionEntity;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.Map;
 

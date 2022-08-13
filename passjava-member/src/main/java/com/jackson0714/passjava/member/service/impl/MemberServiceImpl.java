@@ -7,8 +7,8 @@ import java.util.Map;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.jackson0714.common.utils.PageUtils;
-import com.jackson0714.common.utils.Query;
+import com.jackson0714.passjava.common.utils.PageUtils;
+import com.jackson0714.passjava.common.utils.Query;
 
 import com.jackson0714.passjava.member.dao.MemberDao;
 import com.jackson0714.passjava.member.entity.MemberEntity;
@@ -37,6 +37,11 @@ public class MemberServiceImpl extends ServiceImpl<MemberDao, MemberEntity> impl
         }
 
         return "success";
+    }
+
+    @Override
+    public MemberEntity getMemberByUserId(String userId) {
+        return baseMapper.getMemberByUserId(userId);
     }
 
 }

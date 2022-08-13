@@ -1,0 +1,17 @@
+spring:
+  profiles:
+    include: jwt
+  datasource:
+    url: jdbc:mysql://localhost:3306/passjava_auth?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: abc123__
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    database: mysql
+    show-sql: true
+
+logging:
+  level:
+    com.jackson0714.passjava: debug

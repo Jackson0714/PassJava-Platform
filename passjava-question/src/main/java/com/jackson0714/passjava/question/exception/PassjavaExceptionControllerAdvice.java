@@ -1,7 +1,7 @@
 package com.jackson0714.passjava.question.exception;
 
-import com.jackson0714.common.exception.BizCodeEnum;
-import com.jackson0714.common.utils.R;
+import com.jackson0714.passjava.common.exception.BizCodeEnum;
+import com.jackson0714.passjava.common.utils.R;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.MethodArgumentNotValidException;

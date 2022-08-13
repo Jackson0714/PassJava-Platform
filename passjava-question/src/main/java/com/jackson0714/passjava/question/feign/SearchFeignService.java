@@ -1,11 +1,9 @@
 package com.jackson0714.passjava.question.feign;
 
-import com.jackson0714.common.to.es.QuestionEsModel;
-import com.jackson0714.common.utils.R;
+import com.jackson0714.passjava.common.to.es.QuestionEsModel;
+import com.jackson0714.passjava.common.utils.R;
 import org.apache.ibatis.annotations.Mapper;
-import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 

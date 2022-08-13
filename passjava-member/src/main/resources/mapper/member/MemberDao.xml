@@ -25,7 +25,31 @@
         <result property="delFlag" column="del_flag"/>
         <result property="createTime" column="create_time"/>
         <result property="updateTime" column="update_time"/>
+        <result property="userId" column="user_id"/>
     </resultMap>
+
+    <sql id="memberSql">
+        ums_member.`id`,
+		ums_member.`user_name`,
+        ums_member.`user_id`,
+        ums_member.`nickname`,
+        ums_member.`phone`,
+        ums_member.`gender`,
+        ums_member.`birth`,
+        ums_member.`email`
+    </sql>
+
+    <select id="getMemberByUserId" resultType="com.jackson0714.passjava.member.entity.MemberEntity">
+        SELECT
+        <include refid="memberSql"/>
+        FROM ums_member as ums_member
+        <where>
+            <if test="userId != null">
+                AND ums_member.`user_id` = #{userId}
+            </if>
+        </where>
+
+    </select>
 
 
 </mapper>

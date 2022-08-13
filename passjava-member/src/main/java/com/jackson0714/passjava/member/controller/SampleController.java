@@ -1,7 +1,7 @@
 package com.jackson0714.passjava.member.controller;
 
 import com.alibaba.nacos.api.config.annotation.NacosValue;
-import com.jackson0714.common.utils.R;
+import com.jackson0714.passjava.common.utils.R;
 import com.jackson0714.passjava.member.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

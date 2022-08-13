@@ -1,6 +1,6 @@
 package com.jackson0714.passjava.member.feign;
 
-import com.jackson0714.common.utils.R;
+import com.jackson0714.passjava.common.utils.R;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

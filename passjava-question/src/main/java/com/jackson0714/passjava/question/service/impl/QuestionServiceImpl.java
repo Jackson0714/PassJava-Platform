@@ -1,8 +1,7 @@
 package com.jackson0714.passjava.question.service.impl;
 
-import com.alibaba.fastjson.JSONObject;
-import com.jackson0714.common.to.es.QuestionEsModel;
-import com.jackson0714.common.utils.R;
+import com.jackson0714.passjava.common.to.es.QuestionEsModel;
+import com.jackson0714.passjava.common.utils.R;
 import com.jackson0714.passjava.question.entity.TypeEntity;
 import com.jackson0714.passjava.question.feign.SearchFeignService;
 import com.jackson0714.passjava.question.service.ITypeService;
@@ -15,8 +14,8 @@ import java.util.Map;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.jackson0714.common.utils.PageUtils;
-import com.jackson0714.common.utils.Query;
+import com.jackson0714.passjava.common.utils.PageUtils;
+import com.jackson0714.passjava.common.utils.Query;
 
 import com.jackson0714.passjava.question.dao.QuestionDao;
 import com.jackson0714.passjava.question.entity.QuestionEntity;
