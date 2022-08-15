@@ -18,17 +18,21 @@ public class ResponseResult<T> {
     this.msg = msg;
     this.data = data;
     }
-    public static ResponseResult success() {
-        return new ResponseResult(ResponseCodeEnum.SUCCESS.getCode(), ResponseCodeEnum.SUCCESS.getMessage());
+
+    public static <T> ResponseResult<T> success() {
+        return new ResponseResult<>(ResponseCodeEnum.SUCCESS.getCode(), ResponseCodeEnum.SUCCESS.getMessage());
     }
+
     public static <T> ResponseResult<T> success(T data) {
-        return new ResponseResult(ResponseCodeEnum.SUCCESS.getCode(), ResponseCodeEnum.SUCCESS.getMessage(), data);
+        return new ResponseResult<>(ResponseCodeEnum.SUCCESS.getCode(), ResponseCodeEnum.SUCCESS.getMessage(), data);
     }
-    public static ResponseResult error(String code, String msg) {
-        return new ResponseResult(code, msg);
+
+    public static <T> ResponseResult<T>  error(String code, String msg) {
+        return new ResponseResult<>(code, msg);
     }
+
     public static <T> ResponseResult<T> error(String code, String msg, T data) {
-        return new ResponseResult(code, msg, data);
+        return new ResponseResult<>(code, msg, data);
     }
     public boolean isSuccess() {
         return Objects.equals(code, "0");

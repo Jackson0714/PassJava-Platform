@@ -45,19 +45,18 @@ public class JwtAuthCheckFilter {
     @Bean
     @Order(-101)
     public GlobalFilter jwtAuthGlobalFilter() {
-
         return (exchange, chain) -> {
             ServerHttpRequest serverHttpRequest = exchange.getRequest();
             ServerHttpResponse serverHttpResponse = exchange.getResponse();
             ServerHttpRequest.Builder mutate = serverHttpRequest.mutate();
             String requestUrl = serverHttpRequest.getURI().getPath();
 
-            // 跳过对登录请求的 token 检查。因为登录请求表明用户是没有 token 的，而是来申请 token 的。
+            // 跳过对登录请求的 token 检查。因为登录请求是没有 token 的，是来申请 token 的。
             if(AUTH_TOKEN_URL.equals(requestUrl)) {
                 return chain.filter(exchange);
             }
 
-            // 从HTTP请求头中获取JWT令牌
+            // 从 HTTP 请求头中获取 JWT 令牌
             String token = getToken(serverHttpRequest);
             if (StringUtils.isEmpty(token)) {
                 return unauthorizedResponse(exchange, serverHttpResponse, ResponseCodeEnum.TOKEN_MISSION);
@@ -80,7 +79,6 @@ public class JwtAuthCheckFilter {
             addHeader(mutate, USER_NAME, username);
             // 内部请求来源参数清除
             removeHeader(mutate, FROM_SOURCE);
-            //从 JWT 中解析出当前用户的身份（userId），并继续执行过滤器链，转发请求
             return chain.filter(exchange.mutate().request(mutate.build()).build());
         };
     }

@@ -20,8 +20,8 @@ import java.util.Map;
 /**
  * 会员-会员表
  *
- * @author jackson0714
- * @email jackson0585@163.com
+ * @author 悟空聊架构
+ * @site www.passjava.cn
  * @date 2020-04-15 17:42:00
  */
 @RestController
@@ -42,7 +42,6 @@ public class MemberController {
      * @return
      */
     @RequestMapping("/userinfo")
-    //@RequiresPermissions("member:member:info")
     public R info(){
         // 方式一: 从 request 里面，推荐方式二
         HttpServletRequest request = ServletUtils.getRequest();

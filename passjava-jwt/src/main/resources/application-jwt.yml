@@ -3,10 +3,11 @@ spring:
 
 passjava:
   jwt:
-    enabled: true   #是否开启JWT登录认证功能
-    secret: passjava  # JWT私钥，用于校验JWT令牌的合法性
-    expiration: 3600000 #JWT令牌的有效期，用于校验JWT令牌的合法性，一个小时
-    header: Authorization #HTTP请求的Header名称，该Header作为参数传递JWT令牌
-    userParamName: userId  #用户登录认证用户名参数名称
-    pwdParamName: password  #用户登录认证密码参数名称
+    enabled: true   # 是否开启JWT登录认证功能
+    secret: passjava  # JWT 私钥，用于校验JWT令牌的合法性
+    expiration: 3600000 # JWT 令牌的有效期，用于校验JWT令牌的合法性，一个小时
+    header: Authorization # HTTP 请求的 Header 名称，该 Header作为参数传递 JWT 令牌
+    userParamName: userId  # 用户登录认证用户名参数名称
+    pwdParamName: password  # 用户登录认证密码参数名称
     useDefaultController: true # 是否使用默认的JwtAuthController
+

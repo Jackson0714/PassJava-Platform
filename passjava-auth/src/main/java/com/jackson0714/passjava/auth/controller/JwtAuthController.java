@@ -45,37 +45,39 @@ public class JwtAuthController {
      */
     @PostMapping("/login")
     public Mono<ResponseResult> login(@RequestBody Map<String,String> map){
-        //从请求体中获取用户名密码
+        // 从请求体中获取用户名密码
         String userId  = map.get(jwtProperties.getUserParamName());
         String password = map.get(jwtProperties.getPwdParamName());
 
-        if(StringUtils.isEmpty(userId)
-                || StringUtils.isEmpty(password)){
+        // 如果用户名和密码为空
+        if(StringUtils.isEmpty(userId) || StringUtils.isEmpty(password)){
             return buildErrorResponse(ResponseCodeEnum.LOGIN_ERROR);
         }
-        //根据用户名（用户Id）去数据库查找该用户
+        // 根据 userId 去数据库查找该用户
         SysUser sysUser = sysUserRepository.findByUserId(userId);
         if(sysUser != null){
-            //将数据库的加密密码与用户明文密码match
-            boolean isAuthenticated = passwordEncoder.matches(password, sysUser.getPassword());
-            //如果匹配成功
+            // 将数据库的加密密码与用户明文密码做比对
+            boolean isAuthenticated = passwordEncoder.matches(password,
+                    sysUser.getPassword());
+            // 如果密码匹配成功
             if(isAuthenticated){
                 // 通过 jwtTokenUtil 生成 JWT 令牌和刷新令牌
-                Map<String, Object> tokenMap = jwtTokenUtil.generateTokenAndRefreshToken(userId, sysUser.getUsername());
+                Map<String, Object> tokenMap = jwtTokenUtil
+                        .generateTokenAndRefreshToken(userId, sysUser.getUsername());
                 return buildSuccessResponse(tokenMap);
-            } else{ //如果密码匹配失败
-                return buildErrorResponse(ResponseCodeEnum.LOGIN_ERROR);
             }
-        }else{
+            // 如果密码匹配失败
             return buildErrorResponse(ResponseCodeEnum.LOGIN_ERROR);
         }
+        // 如果未找到用户
+        return buildErrorResponse(ResponseCodeEnum.LOGIN_ERROR);
     }
 
     /**
      * 刷新JWT令牌,用旧的令牌换新的令牌
      */
     @GetMapping("/refreshtoken")
-    public  Mono<ResponseResult> refreshtoken(@RequestHeader("${passjava.jwt.header}") String token){
+    public  Mono<ResponseResult> refreshToken(@RequestHeader("${passjava.jwt.header}") String token){
         token = SecurityUtils.replaceTokenPrefix(token);
 
         if (StringUtils.isEmpty(token)) {
