@@ -44,14 +44,14 @@ public class JwtAuthController {
      * 使用用户名密码换 JWT 令牌
      */
     @PostMapping("/login")
-    public Mono<ResponseResult> login(@RequestBody Map<String,String> map){
+    public ResponseResult<?> login(@RequestBody Map<String,String> map){
         // 从请求体中获取用户名密码
         String userId  = map.get(jwtProperties.getUserParamName());
         String password = map.get(jwtProperties.getPwdParamName());
 
         // 如果用户名和密码为空
         if(StringUtils.isEmpty(userId) || StringUtils.isEmpty(password)){
-            return buildErrorResponse(ResponseCodeEnum.LOGIN_ERROR);
+            return ResponseResult.error(ResponseCodeEnum.LOGIN_ERROR.getCode(), ResponseCodeEnum.LOGIN_ERROR.getMessage());
         }
         // 根据 userId 去数据库查找该用户
         SysUser sysUser = sysUserRepository.findByUserId(userId);
@@ -64,13 +64,13 @@ public class JwtAuthController {
                 // 通过 jwtTokenUtil 生成 JWT 令牌和刷新令牌
                 Map<String, Object> tokenMap = jwtTokenUtil
                         .generateTokenAndRefreshToken(userId, sysUser.getUsername());
-                return buildSuccessResponse(tokenMap);
+                return ResponseResult.success(tokenMap);
             }
             // 如果密码匹配失败
-            return buildErrorResponse(ResponseCodeEnum.LOGIN_ERROR);
+            return ResponseResult.error(ResponseCodeEnum.LOGIN_ERROR.getCode(), ResponseCodeEnum.LOGIN_ERROR.getMessage());
         }
         // 如果未找到用户
-        return buildErrorResponse(ResponseCodeEnum.LOGIN_ERROR);
+        return ResponseResult.error(ResponseCodeEnum.LOGIN_ERROR.getCode(), ResponseCodeEnum.LOGIN_ERROR.getMessage());
     }
 
     /**
