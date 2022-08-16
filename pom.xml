@@ -21,5 +21,6 @@
         <module>passjava-thirdparty</module>
         <module>passjava-auth</module>
         <module>passjava-jwt</module>
+        <module>renren-fast</module>
     </modules>
 </project>

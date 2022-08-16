@@ -23,6 +23,6 @@ public interface IQuestionService extends IService<QuestionEntity> {
 
     boolean updateQuestion(QuestionEntity question);
 
-    QuestionEntity createQuestion(QuestionEntity question);
+    boolean createQuestion(QuestionEntity question);
 }
 

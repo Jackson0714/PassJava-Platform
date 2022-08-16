@@ -33,6 +33,9 @@ import java.nio.charset.StandardCharsets;
 @Configuration
 public class JwtAuthCheckFilter {
     private static final String AUTH_TOKEN_URL = "/auth/login";
+    private static final String RENREN_CAPTCHA_TOKEN_URL = "/renren-fast/captcha.jpg";
+    private static final String RENREN_LOGIN_TOKEN_URL = "/renren-fast/sys/login";
+    private static final String RENREN_START_URL = "/renren-fast";
     public static final String USER_ID = "userId";
     public static final String USER_NAME = "username";
     public static final String FROM_SOURCE = "from-source";
@@ -46,6 +49,13 @@ public class JwtAuthCheckFilter {
     @Order(-101)
     public GlobalFilter jwtAuthGlobalFilter() {
         return (exchange, chain) -> {
+
+            // renren-fast 自带了 token 认证，所以 Gateway 不需要做登录认证了，跳过 token 验证，转发所有请求。
+            boolean flag = true;
+            if(flag) {
+                return chain.filter(exchange);
+            }
+
             ServerHttpRequest serverHttpRequest = exchange.getRequest();
             ServerHttpResponse serverHttpResponse = exchange.getResponse();
             ServerHttpRequest.Builder mutate = serverHttpRequest.mutate();

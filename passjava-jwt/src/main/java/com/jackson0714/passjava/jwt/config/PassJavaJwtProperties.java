@@ -4,6 +4,9 @@ import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * JWT 属性配置
  *
@@ -44,5 +47,7 @@ public class PassJavaJwtProperties {
      * 是否使用默认的JWTAuthController
      */
     private Boolean useDefaultController = false;
+
+    private String skipValidUrl;
 
 }

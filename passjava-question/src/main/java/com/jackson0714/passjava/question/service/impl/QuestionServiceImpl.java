@@ -75,10 +75,11 @@ public class QuestionServiceImpl extends ServiceImpl<QuestionDao, QuestionEntity
     }
 
     @Override
-    public QuestionEntity createQuestion(QuestionEntity question) {
+    public boolean createQuestion(QuestionEntity question) {
+        boolean saveResult = save(question);
         // Mock 返回 id
-        question.setId(123L);
-        return question;
+        // question.setId(123L);
+        return saveResult;
     }
 
     private boolean saveEs(QuestionEntity question) {

@@ -106,8 +106,9 @@ public class QuestionController {
     @RequestMapping("/create")
     @CachePut(value = "hot", key = "#result.id")
     // mock create
-    public QuestionEntity create(@Valid @RequestBody QuestionEntity question){
-        return IQuestionService.createQuestion(question);
+    public R create(@Valid @RequestBody QuestionEntity question){
+        IQuestionService.createQuestion(question);
+        return R.ok();
     }
 
     @RequestMapping("/remove/{id}")
