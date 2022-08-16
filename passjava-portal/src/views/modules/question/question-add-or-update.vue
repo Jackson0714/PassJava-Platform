@@ -29,7 +29,10 @@
       </el-form-item>
       <el-form-item label="题目类型" prop="type">
         <el-select v-model="dataForm.type" placeholder="请选择" @change="chooseType">
-          <el-option v-for="item in types" :key="item.id" :label="item.comments" :value="item.id">
+          <el-option v-for="item in types" 
+            :key="item.id" 
+            :label="item.comments" 
+            :value="item.id*1">
             <span style="float: left">{{ item.comments }}</span>
             <span style="float: right; color: #8492a6; font-size: 13px">{{ item.type }}</span>
           </el-option>
@@ -57,31 +60,31 @@ export default {
   data() {
     return {
       types: [
-        {
-          id: 1,
-          type: "javaBasic",
-          comments: "Java基础"
-        },
-        {
-          id: 2,
-          type: "jvm",
-          comments: "jvm虚拟机"
-        },
-        {
-          id: 3,
-          type: "spring",
-          comments: "Spring核心原理"
-        },
-        {
-          id: 4,
-          type: "bigData",
-          comments: "大数据"
-        },
-        {
-          id: 5,
-          type: "thread",
-          comments: "多线程"
-        }
+        // {
+        //   id: 1,
+        //   type: "javaBasic",
+        //   comments: "Java基础"
+        // },
+        // {
+        //   id: 2,
+        //   type: "jvm",
+        //   comments: "jvm虚拟机"
+        // },
+        // {
+        //   id: 3,
+        //   type: "spring",
+        //   comments: "Spring核心原理"
+        // },
+        // {
+        //   id: 4,
+        //   type: "bigData",
+        //   comments: "大数据"
+        // },
+        // {
+        //   id: 5,
+        //   type: "thread",
+        //   comments: "多线程"
+        // }
       ],
       value: "",
       key: "",
@@ -93,7 +96,7 @@ export default {
         level: "",
         displayOrder: "",
         subTitle: "",
-        type: "",
+        type: 0,
         key: 0,
         enable: "",
         createTime: "",
@@ -176,6 +179,18 @@ export default {
               this.dataForm.enable = data.question.enable;
               this.dataForm.createTime = data.question.createTime;
               this.dataForm.updateTime = data.question.updateTime;
+            }
+          });
+
+          this.$http({
+            url: this.$http.adornUrl(
+              `/question/type/list`
+            ),
+            method: "get",
+            params: this.$http.adornParams()
+          }).then(({ data }) => {
+            if (data && data.code === 0) {
+              this.types = data.page.list;
             }
           });
         }
