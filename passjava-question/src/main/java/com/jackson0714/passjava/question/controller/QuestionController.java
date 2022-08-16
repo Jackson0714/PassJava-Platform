@@ -51,7 +51,7 @@ public class QuestionController {
      * 信息
      */
     @RequestMapping("/info/{id}")
-    @Cacheable({"hot"})
+//    @Cacheable({"hot"})
     public R info(@PathVariable("id") Long id) {
 		QuestionEntity question = IQuestionService.info(id);
         return R.ok().put("question", question);

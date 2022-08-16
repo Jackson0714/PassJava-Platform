@@ -53,7 +53,7 @@ public class QuestionServiceImpl extends ServiceImpl<QuestionDao, QuestionEntity
     }
 
     @Override
-    @Cacheable({"question", "hot"})
+//    @Cacheable({"question", "hot"})
     public QuestionEntity info(Long id) {
         return getById(id);
     }

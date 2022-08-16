@@ -162,25 +162,7 @@ export default {
       this.$nextTick(() => {
         this.$refs["dataForm"].resetFields();
         if (this.dataForm.id) {
-          this.$http({
-            url: this.$http.adornUrl(
-              `/question/v1/admin/question/info/${this.dataForm.id}`
-            ),
-            method: "get",
-            params: this.$http.adornParams()
-          }).then(({ data }) => {
-            if (data && data.code === 0) {
-              this.dataForm.title = data.question.title;
-              this.dataForm.answer = data.question.answer;
-              this.dataForm.level = data.question.level;
-              this.dataForm.displayOrder = data.question.displayOrder;
-              this.dataForm.subTitle = data.question.subTitle;
-              this.dataForm.type = data.question.type;
-              this.dataForm.enable = data.question.enable;
-              this.dataForm.createTime = data.question.createTime;
-              this.dataForm.updateTime = data.question.updateTime;
-            }
-          });
+          
 
           this.$http({
             url: this.$http.adornUrl(
@@ -191,6 +173,26 @@ export default {
           }).then(({ data }) => {
             if (data && data.code === 0) {
               this.types = data.page.list;
+
+              this.$http({
+                url: this.$http.adornUrl(
+                  `/question/v1/admin/question/info/${this.dataForm.id}`
+                ),
+                method: "get",
+                params: this.$http.adornParams()
+              }).then(({ data }) => {
+                if (data && data.code === 0) {
+                  this.dataForm.title = data.question.title;
+                  this.dataForm.answer = data.question.answer;
+                  this.dataForm.level = data.question.level;
+                  this.dataForm.displayOrder = data.question.displayOrder;
+                  this.dataForm.subTitle = data.question.subTitle;
+                  this.dataForm.type = data.question.type;
+                  this.dataForm.enable = data.question.enable;
+                  this.dataForm.createTime = data.question.createTime;
+                  this.dataForm.updateTime = data.question.updateTime;
+                }
+              });
             }
           });
         }
