@@ -32,6 +32,11 @@ public class QuestionServiceImpl extends ServiceImpl<QuestionDao, QuestionEntity
     SearchFeignService searchFeignService;
 
     @Override
+    public  IPage<QuestionEntity> queryPage1(IPage<QuestionEntity> page, Map<String, Object> params) {
+        return baseMapper.selectPage1(page, params);
+    }
+
+    @Override
     public PageUtils queryPage(Map<String, Object> params) {
         //1.get key
         String key = (String) params.get("key");

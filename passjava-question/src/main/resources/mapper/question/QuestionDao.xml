@@ -13,10 +13,41 @@
         <result property="subTitle" column="sub_title"/>
         <result property="type" column="type"/>
         <result property="enable" column="enable"/>
+        <result property="typeComments" column="type_comments"/>
         <result property="delFlag" column="del_flag"/>
         <result property="createTime" column="create_time"/>
         <result property="updateTime" column="update_time"/>
     </resultMap>
 
 
+    <sql id="questionSql">
+        qms_question.`id`,
+        qms_question.`title`,
+        qms_question.`answer`,
+        qms_question.`level`,
+        qms_question.`display_order`,
+        qms_question.`sub_title`,
+        qms_question.`type`,
+        qms_question.`enable`,
+        qms_question.`del_flag`,
+        qms_question.`create_time`,
+        qms_question.`update_time`,
+		qms_type.`comments` as type_comments
+    </sql>
+
+    <select id="selectPage1" resultType="com.jackson0714.passjava.question.entity.QuestionEntity">
+        SELECT
+        <include refid="questionSql"/>
+            FROM qms_question qms_question
+            INNER JOIN qms_type ON qms_question.type = qms_type.id
+            <where>
+                <if test="params.key != null and params.key != ''">
+                    AND qms_question.`id` like CONCAT(CONCAT('%', #{params.key}), '%')
+                    OR qms_question.`title` like CONCAT(CONCAT('%', #{params.key}), '%')
+                    OR qms_question.`answer` like CONCAT(CONCAT('%', #{params.key}), '%')
+                </if>
+            </where>
+
+
+    </select>
 </mapper>

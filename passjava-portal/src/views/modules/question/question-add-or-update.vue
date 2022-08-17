@@ -96,7 +96,7 @@ export default {
         level: "",
         displayOrder: "",
         subTitle: "",
-        type: 0,
+        type: 1,
         key: 0,
         enable: "",
         createTime: "",
@@ -159,12 +159,7 @@ export default {
     init(id) {
       this.dataForm.id = id || 0;
       this.visible = true;
-      this.$nextTick(() => {
-        this.$refs["dataForm"].resetFields();
-        if (this.dataForm.id) {
-          
-
-          this.$http({
+      this.$http({
             url: this.$http.adornUrl(
               `/question/type/list`
             ),
@@ -173,6 +168,13 @@ export default {
           }).then(({ data }) => {
             if (data && data.code === 0) {
               this.types = data.page.list;
+          }});
+      this.$nextTick(() => {
+        this.$refs["dataForm"].resetFields();
+        if (this.dataForm.id) {
+          
+
+          
 
               this.$http({
                 url: this.$http.adornUrl(
@@ -192,9 +194,7 @@ export default {
                   this.dataForm.createTime = data.question.createTime;
                   this.dataForm.updateTime = data.question.updateTime;
                 }
-              });
-            }
-          });
+            });
         }
       });
     },
