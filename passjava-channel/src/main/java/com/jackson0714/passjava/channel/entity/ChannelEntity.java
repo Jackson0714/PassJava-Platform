@@ -11,8 +11,8 @@ import lombok.Data;
 /**
  * 渠道-渠道表
  * 
- * @author jackson0714
- * @email jackson0585@163.com
+ * @author 公众号：悟空聊架构
+ * @site www.passjava.cn
  * @date 2020-04-15 15:08:21
  */
 @Data

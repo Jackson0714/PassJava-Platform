@@ -7,8 +7,8 @@ import org.apache.ibatis.annotations.Mapper;
 /**
  * 会员-积分值变化历史记录表
  * 
- * @author jackson0714
- * @email jackson0585@163.com
+ * @author 公众号：悟空聊架构
+ * @site www.passjava.cn
  * @date 2020-04-15 17:42:00
  */
 @Mapper

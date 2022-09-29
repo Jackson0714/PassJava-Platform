@@ -10,8 +10,8 @@ import lombok.Data;
 /**
  * 学习-用户学习时常表
  * 
- * @author jackson0714
- * @email jackson0585@163.com
+ * @author 公众号：悟空聊架构
+ * @site www.passjava.cn
  * @date 2020-04-15 17:50:49
  */
 @Data
