@@ -87,4 +87,37 @@ public class TypeController {
         return R.ok();
     }
 
+
+    /**
+     * 测试添加 @Transactional 注解后，Redis 操作是否有问题
+     * 悟空聊架构
+     */
+    @RequestMapping("/test-redis")
+    public R testRedisWithOutTransaction() {
+        Long result = ITypeService.testWithOutTransactionAnnotations();
+        return R.ok(String.valueOf(result));
+    }
+
+    /**
+     * 测试添加 @Transactional 注解后，Redis 操作是否有问题
+     * 悟空聊架构
+     */
+    @RequestMapping("/test-transaction-annotations")
+    public R testRedisWithTransaction() {
+        Long result = ITypeService.testTransactionAnnotations();
+        return R.ok(String.valueOf(result));
+    }
+
+    @RequestMapping("/test-redis-multi")
+    public R testRedisMulti(){
+        ITypeService.testRedisMutil();
+        return R.ok();
+    }
+
+    @RequestMapping("/enable-transaction-support")
+    public R enableTransactionSupport(@RequestParam Boolean flag){
+        ITypeService.enableTransactionSupport(flag);
+
+        return R.ok("flag:" + String.valueOf(flag));
+    }
 }

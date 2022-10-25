@@ -6,6 +6,7 @@ import org.apache.commons.lang.StringUtils;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.data.redis.core.script.DefaultRedisScript;
@@ -26,6 +27,10 @@ import com.jackson0714.passjava.common.utils.Query;
 import com.jackson0714.passjava.question.dao.TypeDao;
 import com.jackson0714.passjava.question.entity.TypeEntity;
 import com.jackson0714.passjava.question.service.ITypeService;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.support.TransactionSynchronizationManager;
+
+import javax.annotation.Resource;
 
 import static java.lang.Thread.sleep;
 
@@ -34,10 +39,17 @@ import static java.lang.Thread.sleep;
 public class TypeServiceImpl extends ServiceImpl<TypeDao, TypeEntity> implements ITypeService {
 
     @Autowired
-    StringRedisTemplate redisTemplate;
-
-    @Autowired
     RedissonClient redisson;
+
+    @Resource
+    @Qualifier("stringRedisTemplate")
+    private StringRedisTemplate myStringRedisTemplate;
+
+    @Resource
+    @Qualifier("stringRedisTemplateTransaction")
+    private StringRedisTemplate stringRedisTemplateTransaction;
+
+
 
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
@@ -52,7 +64,7 @@ public class TypeServiceImpl extends ServiceImpl<TypeDao, TypeEntity> implements
     @Override
     public List<TypeEntity> getTypeEntityList() {
         // 1.初始化 redis 组件
-        ValueOperations<String, String> ops = redisTemplate.opsForValue();
+        ValueOperations<String, String> ops = myStringRedisTemplate.opsForValue();
         // 2.从缓存中查询数据
         String typeEntityListCache = ops.get("typeEntityList");
         // 3.如果缓存中没有数据
@@ -74,7 +86,7 @@ public class TypeServiceImpl extends ServiceImpl<TypeDao, TypeEntity> implements
     @Override
     public List<TypeEntity> getTypeEntityListByLock() {
         // 1.从缓存中查询数据
-        String typeEntityListCache = redisTemplate.opsForValue().get("typeEntityList");
+        String typeEntityListCache = myStringRedisTemplate.opsForValue().get("typeEntityList");
         if (!StringUtils.isEmpty(typeEntityListCache)) {
             // 2.如果缓存中有数据，则从缓存中拿出来，并反序列化为实例对象，并返回结果
             List<TypeEntity> typeEntityList = JSON.parseObject(typeEntityListCache, new TypeReference<List<TypeEntity>>(){});
@@ -89,7 +101,7 @@ public class TypeServiceImpl extends ServiceImpl<TypeDao, TypeEntity> implements
     private List<TypeEntity> getDataFromDB() {
         String typeEntityListCache;
         // 4.从缓存中查询数据
-        typeEntityListCache = redisTemplate.opsForValue().get("typeEntityList");
+        typeEntityListCache = myStringRedisTemplate.opsForValue().get("typeEntityList");
         if (!StringUtils.isEmpty(typeEntityListCache)) {
             // 5.如果缓存中有数据，则从缓存中拿出来，并反序列化为实例对象，并返回结果
             List<TypeEntity> typeEntityList = JSON.parseObject(typeEntityListCache, new TypeReference<List<TypeEntity>>(){});
@@ -101,7 +113,7 @@ public class TypeServiceImpl extends ServiceImpl<TypeDao, TypeEntity> implements
         // 7.将从数据库中查询出的数据序列化 JSON 字符串
         typeEntityListCache = JSON.toJSONString(typeEntityListFromDb);
         // 8.将序列化后的数据存入缓存中
-        redisTemplate.opsForValue().set("typeEntityList", typeEntityListCache, 1, TimeUnit.DAYS);
+        myStringRedisTemplate.opsForValue().set("typeEntityList", typeEntityListCache, 1, TimeUnit.DAYS);
         return typeEntityListFromDb;
     }
 
@@ -115,7 +127,7 @@ public class TypeServiceImpl extends ServiceImpl<TypeDao, TypeEntity> implements
         // 1.生成唯一 id
         String uuid = UUID.randomUUID().toString();
         // 2. 抢占锁
-        Boolean lock = redisTemplate.opsForValue().setIfAbsent("lock", uuid, 10, TimeUnit.SECONDS);
+        Boolean lock = myStringRedisTemplate.opsForValue().setIfAbsent("lock", uuid, 10, TimeUnit.SECONDS);
         if(lock) {
             System.out.println("抢占成功：" + uuid);
             // 3.抢占成功，执行业务
@@ -123,7 +135,7 @@ public class TypeServiceImpl extends ServiceImpl<TypeDao, TypeEntity> implements
 
             // 4.Lua 脚本解锁
             String script = "if redis.call('get',KEYS[1]) == ARGV[1] then return redis.call('del',KEYS[1]) else return 0 end";
-            redisTemplate.execute(new DefaultRedisScript<Long>(script, Long.class), Arrays.asList("lock"), uuid);
+            myStringRedisTemplate.execute(new DefaultRedisScript<Long>(script, Long.class), Arrays.asList("lock"), uuid);
 
             System.out.println("解锁成功：" + uuid);
 
@@ -163,4 +175,49 @@ public class TypeServiceImpl extends ServiceImpl<TypeDao, TypeEntity> implements
         }
         return typeEntityListFromDb;
     }
+
+
+    /**
+     * Redis 事务操作
+     * 悟空聊架构
+     */
+    @Override
+    public void testRedisMutil() {
+        myStringRedisTemplate.setEnableTransactionSupport(true);
+        myStringRedisTemplate.multi();
+        myStringRedisTemplate.opsForValue().set("passjava", "123");
+        myStringRedisTemplate.opsForValue().set("悟空聊架构", "abc");
+        myStringRedisTemplate.exec();
+    }
+
+    // TransactionSynchronizationManager.unbindResource(myStringRedisTemplate.getConnectionFactory());
+
+    /**
+     * 自增
+     * 悟空聊架构
+     * @return 自增后的值
+     */
+    @Override
+    @Transactional
+    public Long testTransactionAnnotations() {
+        // Redis 递增
+        return myStringRedisTemplate.opsForValue().increment("count", 1);
+    }
+
+    @Override
+    public void enableTransactionSupport(Boolean flag) {
+        myStringRedisTemplate.setEnableTransactionSupport(flag);
+    }
+
+    /**
+     * 不添加 Spring 事务注解 @Transactional
+     * 悟空聊架构
+     * @return 自增后的值
+     */
+    @Override
+    public Long testWithOutTransactionAnnotations() {
+        // Redis 递增
+        return myStringRedisTemplate.opsForValue().increment("count", 1);
+    }
+
 }

@@ -132,5 +132,4 @@ public class MemberController {
 
         return R.ok();
     }
-
 }

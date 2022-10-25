@@ -3,6 +3,7 @@ package com.jackson0714.passjava.question.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.jackson0714.passjava.common.utils.PageUtils;
 import com.jackson0714.passjava.question.entity.TypeEntity;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Map;
@@ -25,5 +26,14 @@ public interface ITypeService extends IService<TypeEntity> {
     List<TypeEntity> getTypeEntityListByRedisDistributedLock() throws InterruptedException;
 
     List<TypeEntity> getTypeEntityListByRedissonDistributedLock();
+
+    void testRedisMutil();
+
+    @Transactional
+    Long testTransactionAnnotations();
+
+    void enableTransactionSupport(Boolean flag);
+
+    Long testWithOutTransactionAnnotations();
 }
 
