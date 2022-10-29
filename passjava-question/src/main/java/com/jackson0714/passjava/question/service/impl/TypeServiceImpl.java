@@ -49,8 +49,6 @@ public class TypeServiceImpl extends ServiceImpl<TypeDao, TypeEntity> implements
     @Qualifier("stringRedisTemplateTransaction")
     private StringRedisTemplate stringRedisTemplateTransaction;
 
-
-
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
         IPage<TypeEntity> page = this.page(
