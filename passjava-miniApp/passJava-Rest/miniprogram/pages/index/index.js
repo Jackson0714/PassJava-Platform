@@ -50,7 +50,7 @@ Page({
               })
             }
           })
-          this.getMember()
+          //this.getMember()
         } else {
           this.setData({
             isShowResigterModal: true
@@ -133,18 +133,18 @@ Page({
 
   onGetOpenid: function () {
     // 调用云函数
-    wx.cloud.callFunction({
-      name: 'login',
-      data: {},
-      success: res => {
-        openid = res.result.openid
-        console.log('[云函数] [login] user openid: ', openid)
-        app.globalData.openid = openid
-      },
-      fail: err => {
-        console.error('[云函数] [login] 调用失败', err)
-      }
-    })
+    // wx.cloud.callFunction({
+    //   name: 'login',
+    //   data: {},
+    //   success: res => {
+    //     openid = res.result.openid
+    //     console.log('[云函数] [login] user openid: ', openid)
+    //     app.globalData.openid = openid
+    //   },
+    //   fail: err => {
+    //     console.error('[云函数] [login] 调用失败', err)
+    //   }
+    // })
   },
 
   /**
@@ -154,9 +154,12 @@ Page({
     this.setData({
       selectedStatus: true, // 底部菜单选中状态
     })
-    this.getBanner()
-    this.getExperience()
-    this.getSummaryList()
+    // this.getBanner()
+    // this.getExperience()
+    // this.getSummaryList()
+    this.setData({
+      isLoadingBanner: false, // 底部菜单选中状态
+    })
   },
 
   onShareAppMessage() {

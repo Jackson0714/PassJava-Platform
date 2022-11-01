@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -18,4 +19,6 @@ import java.util.Map;
 @Mapper
 public interface QuestionDao extends BaseMapper<QuestionEntity> {
     IPage<QuestionEntity> selectPage1(IPage<QuestionEntity> page, Map<String, Object> params);
+
+    List<QuestionEntity> listForApp(String type);
 }

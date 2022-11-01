@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.jackson0714.passjava.common.utils.PageUtils;
 import com.jackson0714.passjava.question.entity.QuestionEntity;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -17,6 +18,8 @@ import java.util.Map;
 public interface IQuestionService extends IService<QuestionEntity> {
 
     IPage<QuestionEntity> queryPage1(IPage<QuestionEntity> page, Map<String, Object> params);
+
+    List<QuestionEntity> list(String type);
 
     PageUtils queryPage(Map<String, Object> params);
 

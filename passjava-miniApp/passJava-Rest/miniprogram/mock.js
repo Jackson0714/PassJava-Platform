@@ -34,8 +34,13 @@ const releaseTimeLine = {
   "github": "GitHub：www.github.com/Jackson0714",
   "wechatService": "公众号：悟空聊架构",
   "wechat": "微信号：PassJava",
-  "aboutMe": "公众号：悟空聊架构，手写了 2W 字分布式算法总结和 6W 字 SpringCloud 实战总结，关注即可免费获取。",
+  "aboutMe": "公众号：悟空聊架构，手写了 2W 字分布式算法总结和 6W 字 SpringCloud 实战总结，关注即可免费获取。官网：www.passjava.cn",
   "timeLinelist": [
+    {
+      "date": "2022年11月01日",
+      "version": "V1.4.0",
+      "description": "Rest 版，支持查询题目列表，查询题目详情",
+    },
     {
       "date": "2019年3月08日",
       "version": "V1.3.0",

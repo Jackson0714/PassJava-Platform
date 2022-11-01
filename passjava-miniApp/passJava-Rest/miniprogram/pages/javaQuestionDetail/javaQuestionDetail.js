@@ -20,7 +20,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getJavaQuestionAnswerById(1) // 通过rest api获取
+    this.getJavaQuestionAnswerById(options.id) // 通过rest api获取
   },
 
   onShow:function(options) {
@@ -48,7 +48,7 @@ Page({
   },
 
   convertToMarkdown: function(answerHtml) {
-    let result = app.towxml(answerHtml,'markdown',{
+    let result = app.towxml(answerHtml, 'markdown',{
       theme:'light',					// 主题，默认`light`
       events:{					// 为元素绑定的事件方法
         tap:(e)=>{

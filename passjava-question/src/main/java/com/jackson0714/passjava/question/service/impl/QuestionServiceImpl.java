@@ -10,6 +10,8 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 import java.util.Map;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -34,6 +36,11 @@ public class QuestionServiceImpl extends ServiceImpl<QuestionDao, QuestionEntity
     @Override
     public  IPage<QuestionEntity> queryPage1(IPage<QuestionEntity> page, Map<String, Object> params) {
         return baseMapper.selectPage1(page, params);
+    }
+
+    @Override
+    public List<QuestionEntity> list(String type) {
+        return baseMapper.listForApp(type);
     }
 
     @Override

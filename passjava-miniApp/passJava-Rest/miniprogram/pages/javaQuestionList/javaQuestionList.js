@@ -1,6 +1,8 @@
 const config = require('../../config')
 const mock = require('../../mock')
 const env = require('../../env')
+const util = require('../../utils/util')
+const restService = require('../../services/restService')
 
 Page({
 
@@ -27,30 +29,31 @@ Page({
   },
   
   onShow: function () {
-    this.getJavaQuestionsList()
+    this.getJavaQuestionList(this.options.type)
   },
 
   onShareAppMessage() {
     // return custom share data when user share.
   },
 
-  getJavaQuestionsList: function () {
-    wx.cloud.callFunction({
-      // 云函数名称
-      name: 'getJavaQuestionList',
-      data: {
-        type: this.data.type
+  getJavaQuestionList: function (type) {
+    restService.get(config.service.getJavaQuestionList + '/' + type).then((res) => {
+      if (res && res.statusCode == 200) {
+        const javaQuestions = JSON.parse(res.data).list
+       
+        this.setData({
+          javaQuestions: javaQuestions,
+          javaQuestionList: javaQuestions,
+          isLoading: false,
+        })
+      } else {
+        util.logAndTips("javaQuestionDetail:", "getJavaQuestionAnswerById2:", res)
       }
-    }).then(res => {
-      let javaQuestions = res.result.data
-      let javaQuestionList = this.formatList(javaQuestions, this.type)
-      this.setData({
-        javaQuestions: javaQuestions,
-        javaQuestionList: javaQuestionList,
-        isLoading: false,
-      })
-    }).catch(console.error)
+    }).catch((res) => {
+      util.logAndTips("javaQuestionDetail:", "getJavaQuestionAnswerById2:", res)
+    })
   },
+  
   formatList: function (javaQuestions, type) {
     let javaQuestionList = []
     for (let javaQuestion of javaQuestions) {

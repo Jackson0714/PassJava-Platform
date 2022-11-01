@@ -26,7 +26,7 @@ Component({
     viewDetail(e) {
       const data = e.currentTarget.dataset
       const item = data.item
-      let detailUrl = config.pages.javaQuestionDetail + '?id=' + item.id + '&answerUrl=' + item.answerUrl
+      let detailUrl = config.pages.javaQuestionDetail + '?id=' + item.id + '&answerUrl=' + item.answer
       wx.navigateTo({
         url: detailUrl,
       })

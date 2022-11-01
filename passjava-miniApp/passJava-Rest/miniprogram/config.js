@@ -30,6 +30,7 @@ const config = {
   },
   service: {
     getJavaQuestionAnswerById: `${baseUrl}/question/v1/admin/question/info`,
+    getJavaQuestionList: `${baseUrl}/question/v1/app/question/list`,
   },
   url: {
     images: `${env.staticDomain}/images`

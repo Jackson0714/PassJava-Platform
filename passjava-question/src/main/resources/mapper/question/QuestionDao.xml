@@ -47,7 +47,15 @@
                     OR qms_question.`answer` like CONCAT(CONCAT('%', #{params.key}), '%')
                 </if>
             </where>
+    </select>
 
-
+    <select id="listForApp" resultType="com.jackson0714.passjava.question.entity.QuestionEntity">
+        SELECT
+        <include refid="questionSql"/>
+        FROM qms_question qms_question
+        INNER JOIN qms_type ON qms_question.type = qms_type.id
+        <where>
+            qms_type.type = #{params.type}
+        </where>
     </select>
 </mapper>
