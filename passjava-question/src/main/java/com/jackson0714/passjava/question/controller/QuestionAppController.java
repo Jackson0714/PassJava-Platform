@@ -29,7 +29,7 @@ public class QuestionAppController {
     private IQuestionService IQuestionService;
 
     /**
-     * 列表
+     * 查询题目列表
      */
     @RequestMapping("/list/{type}")
     public R list(@PathVariable("type") String type){
@@ -41,7 +41,7 @@ public class QuestionAppController {
 
 
     /**
-     * 信息
+     * 查询题目答案
      */
     @RequestMapping("/info/{id}")
     public R info(@PathVariable("id") Long id) {

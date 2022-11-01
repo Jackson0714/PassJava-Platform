@@ -7,7 +7,6 @@ passJavaCloud：腾讯云开发版小程序，不需要后台即可访问题库�
 ### passJavaRest
 passJavaRest：进阶版小程序。后端采用 Spring Cloud 微服务作为服务支撑，数据库也不是云数据库了，而是 mysql。Rest 版本虽然目前还不完善，但已经和后端打通。
 
-
 本文主要内容如下：
 ![](https://img-blog.csdnimg.cn/img_convert/c1ef95d8cccc194b72a7688a0a32bfa9.png)
 
@@ -168,7 +167,7 @@ https://github.com/Jackson0714/passJavaKnowledge/tree/master
 
 - 本地后台微服务启动成功。
 
-  目前要求 passjava-gateway、passjava-question、renren 启动成功。
+  目前要求 passjava-gateway、passjava-question、RenrenAplication 启动成功。
 
 ![](https://img-blog.csdnimg.cn/img_convert/ec70fd21f373f2fd12d4add379c96df1.png)
 
@@ -198,9 +197,55 @@ https://github.com/Jackson0714/passJavaKnowledge/tree/master
 
 - 打开小程序代码正常。
 
-  另外需要注意下，Rest 版目前的首页题目类型和题目列表正在开发中，所以还是用的云函数，获取题目用到的 id 是 1。目前阶段仅供学习，本人时间有限，欢迎大家来帮助 commit。
+可以查询题目列表和查询题目的答案。
 
-![](https://img-blog.csdnimg.cn/img_convert/71eb562dee22c9614315cacee43aad8b.png)
+<video src="../../../Library/Containers/com.tencent.xinWeChat/Data/Library/Application%20Support/com.tencent.xinWeChat/2.0b4.0.9/481c5e6e089be08afdce2aaf8dd41856/Message/MessageTemp/864abc48c494dd2cb9b3490c29cc2d95/Video/864abc48c494dd2cb9b3490c29cc2d95_689009204208_v_1667316404215886.mp4"></video>
+
+### 前端核心代码
+
+#### 查询题目列表
+
+代码路径：miniprogram/pages/javaQuestionList/javaQuestionList.js
+
+![](http://cdn.jayh.club/uPic/image-20221101233245282L5ju0N.png)
+
+#### 查询题目详情
+
+代码路径：miniprogram/pages/javaQuestionDetail/javaQuestionDetail.js
+
+![](http://cdn.jayh.club/uPic/image-20221101233315920rpLzZv.png)
+
+### 后端核心代码
+
+代码路径：
+
+``` SH
+src/main/java/com/jackson0714/passjava/question/controller/QuestionAppController.java
+```
+
+#### 查询题目列表的 API
+
+![](http://cdn.jayh.club/uPic/image-20221101233539957ORXdSO.png)
+
+#### 查询题目详情的 API
+
+![](http://cdn.jayh.club/uPic/image-20221101233558397xb0sIN.png)
+
+### 数据库
+
+表：passjava_qms.qms_question
+
+#### 题目列表数据
+
+![image-20221101233819567](http://cdn.jayh.club/uPic/image-20221101233819567qgmgY8.png)
+
+#### 题目类型数据
+
+表：passjava_qms.qms_type
+
+![](http://cdn.jayh.club/uPic/image-20221101233849267LTWzNH.png)
+
+
 
 ## 四、开源地址
 

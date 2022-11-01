@@ -29,7 +29,7 @@ const config = {
     'javaQuestionDetail': '/pages/javaQuestionDetail/javaQuestionDetail', //java知识详情
   },
   service: {
-    getJavaQuestionAnswerById: `${baseUrl}/question/v1/admin/question/info`,
+    getJavaQuestionAnswerById: `${baseUrl}/question/v1/app/question/info`,
     getJavaQuestionList: `${baseUrl}/question/v1/app/question/list`,
   },
   url: {
