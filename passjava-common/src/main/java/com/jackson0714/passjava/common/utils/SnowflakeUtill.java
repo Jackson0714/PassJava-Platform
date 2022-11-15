@@ -1,6 +1,6 @@
-package com.exam.util;
+package com.jackson0714.passjava.common.utils;
 
-public class SnowFlakeUtill {
+public class SnowflakeUtill {
 
     // 起始时间戳
     private final static long START_STMP = 1168391101267L;
