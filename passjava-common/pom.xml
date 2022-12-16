@@ -114,7 +114,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>5.2.5.RELEASE</version>
+            <version>5.2.20.RELEASE</version>
             <scope>compile</scope>
         </dependency>
 
