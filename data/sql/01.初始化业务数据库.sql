@@ -3,13 +3,14 @@ DROP DATABASE IF EXISTS `passjava_qms`;
 DROP DATABASE IF EXISTS `passjava_sms`;
 DROP DATABASE IF EXISTS `passjava_cms`;
 DROP DATABASE IF EXISTS `passjava_chms`;
+DROP DATABASE IF EXISTS `passjava_auth`;
 
 CREATE DATABASE passjava_ums CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 CREATE DATABASE passjava_qms CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 CREATE DATABASE passjava_sms CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 CREATE DATABASE passjava_cms CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 CREATE DATABASE passjava_chms CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-
+CREATE DATABASE passjava_auth CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 
 USE passjava_ums;
 
