@@ -29,7 +29,7 @@
 		<commons.io.version>2.5</commons.io.version>
 		<commons.codec.version>1.10</commons.codec.version>
 		<commons.configuration.version>1.10</commons.configuration.version>
-		<shiro.version>1.4.0</shiro.version>
+		<shiro.version>1.7.1</shiro.version>
 		<jwt.version>0.7.0</jwt.version>
 		<kaptcha.version>0.0.9</kaptcha.version>
 		<qiniu.version>7.2.23</qiniu.version>
