@@ -2,9 +2,9 @@ spring:
   profiles:
     include: jwt
   datasource:
-    url: jdbc:mysql://localhost:3306/passjava_auth?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://127.0.0.1:3306/passjava_auth?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
     username: root
-    password: abc123__
+    password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
